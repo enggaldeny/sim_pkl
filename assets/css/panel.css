@@ -1,0 +1,123 @@
+.panel-jalan {
+    border-color: #9368E9;
+}
+
+.panel-jalan > .panel-heading {
+    border-color: #9368E9;
+    color: #fff;
+    background-color: #9368E9;
+}
+
+.panel-jalan > a {
+    color: #9368E9;
+}
+
+.panel-jalan > a:hover {
+    color: #9368E9;
+}
+.panel-sampah {
+    border-color: #87CB16;
+}
+
+.panel-sampah > .panel-heading {
+    border-color: #87CB16;
+    color: #fff;
+    background-color: #87CB16;
+}
+
+.panel-sampah > a {
+    color: #87CB16;
+}
+
+.panel-sampah > a:hover {
+    color: #87CB16;
+}
+
+.panel-listrik {
+    border-color: #FB404B
+}
+
+.panel-listrik > .panel-heading {
+    border-color: #FB404B;
+    color: #fff;
+    background-color: #FB404B;
+}
+
+.panel-listrik > a {
+    color: #FB404B;
+}
+
+.panel-listrik > a:hover {
+    color: #FB404B;
+}
+
+.panel-umum {
+    border-color: #FFA534;
+}
+
+.panel-umum > .panel-heading {
+    border-color: #FFA534;
+    color: #fff;
+    background-color: #FFA534;
+}
+
+.panel-umum > a {
+    color: #FFA534;
+}
+
+.panel-umum > a:hover {
+    color: #FFA534;
+}
+.panel-sampah {
+    border-color: #87CB16;
+}
+
+.panel-sampah > .panel-heading {
+    border-color: #87CB16;
+    color: #fff;
+    background-color: #87CB16;
+}
+
+.panel-sampah > a {
+    color: #87CB16;
+}
+
+.panel-sampah > a:hover {
+    color: #87CB16;
+}
+
+.panel-sanitasi {
+    border-color: #1DC7EA;
+}
+
+.panel-sanitasi > .panel-heading {
+    border-color:#1DC7EA;
+    color: #fff;
+    background-color: #1DC7EA;
+}
+
+.panel-sanitasi > a {
+    color:#1DC7EA;
+}
+
+.panel-sanitasi > a:hover {
+    color: #1DC7EA;
+}
+
+.panel-bangunan {
+    border-color: #1F77D0;
+}
+
+.panel-bangunan > .panel-heading {
+    border-color: #1F77D0;
+    color: #fff;
+    background-color: #1F77D0;
+}
+
+.panel-bangunan > a {
+    color: #1F77D0;
+}
+
+.panel-bangunan > a:hover {
+    color: #1F77D0;
+}
