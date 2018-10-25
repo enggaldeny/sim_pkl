@@ -1,22 +1,4 @@
-<footer class="footer">
-            <div class="container-fluid">
-                <nav class="pull-left">
-                    <ul>
-                        <li>
-                            <a href="#">
-                                SIM PKL versi 1.0
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-                <p class="copyright pull-right">
-                    &copy; 2018 <a href="http://www.creative-tim.com">TIF Polije Tim</a>, SMK Negeri 6 Jember
-                </p>
-            </div>
-        </footer>
 
-    </div>
-</div>
 </body>
 
     <!--   Core JS Files   -->

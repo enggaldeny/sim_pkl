@@ -29,6 +29,7 @@
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
     <link href="<?php echo base_url()?>assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
+    
 
 </head>
 <body>
@@ -60,6 +61,12 @@
                     <a href="<?php echo base_url()?>index.php/Dudi">
                         <i class="pe-7s-portfolio"></i>
                         <p>DUDI</p>
+                    </a>
+                </li>
+                <li class="<?php if ($class=='parameter'){ echo 'active';}else{echo '';};?>">
+                    <a href="<?php echo base_url()?>index.php/Parameter">
+                        <i class="pe-7s-check"></i>
+                        <p>Parameter Nilai</p>
                     </a>
                 </li>
                 <li class="<?php if ($class=='siswa'){ echo 'active';}else{echo '';};?>">
