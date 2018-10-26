@@ -1,3 +1,41 @@
+<div id="dudiEd" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Update Akun</h4>
+      </div>
+      <div class="modal-body">
+          <table class="table table-hover table-striped">
+            <tbody>
+               
+                <tr>
+                    <th>Username</th><td>:</td><td><input type="text" class="form-control" name="unm" <?php echo $this->session->userdata('du');?>></td>
+                </tr>  
+                <tr>
+                    <th>Password</th><td>:</td><td><input type="passowrd" class="form-control" name="pw" placeholder="Password Baru"></td>
+                </tr>                
+                <tr>
+                    <th>Ketik Ulang Password</th><td>:</td><td><input type="password" class="form-control" name="konfirm" placeholder="Ketik Ulang Password Baru"></td>
+                </tr>                
+           </tbody>
+          </table>                
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-success"  data-dismiss="modal">Simpan</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Tutup</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div id="pokjaEd" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
 
 </body>
 
@@ -44,11 +82,45 @@
         
         
     });
+        
     });
 </script>
 <script>
 $(function(){
 	$('#tabel_data').DataTable();
 });
+    $(function(){
+$(".tbl-delDudi").click(function(event){
+       // alert ("Haii");
+        $("#del_di").val($(this).attr("di"));
+    });
+    });
+   $(function(){  
+$(".tbl-edPgw").click(function(event){
+       // alert ("Haii");
+        $("#pi_ed").val($(this).attr("pi"));
+    $("#pnip_ed").val($(this).attr("pnip"));
+        $("#pn_ed").val($(this).attr("pn"));
+        $("#ph_ed").val($(this).attr("ph"));
+        $("#pa_ed").val($(this).attr("pa"));
+    });
+    });
+    
+    $(function(){
+$(".tbl-delPgw").click(function(event){
+       //alert ("Haii");
+        $("#del_pi").val($(this).attr("pi"));
+    });
+    });
+    
+    $(function() {
+        $("#ceklvl").click(function() {
+            if ($(this).is(":checked")) {
+                $("#akun").show();
+            } else {
+                $("#akun").hide();
+            }
+        });
+    });
 </script>
 </html>

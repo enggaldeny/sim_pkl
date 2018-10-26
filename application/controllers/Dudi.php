@@ -4,6 +4,7 @@ class Dudi extends CI_Controller{
         parent::__construct();
         $this->load->helper('url');
         $this->load->model('M_Dudi');
+        $this->load->model('M_pkl');
     }
     public function index(){
          if(empty($this->session->userdata('pv'))){
@@ -104,6 +105,12 @@ class Dudi extends CI_Controller{
             );
         $where=array('DUDI_ID'=>$di);
         $this->M_Dudi->updatedudi($where,$data,'prk_dudi');
+        redirect('Dudi');
+    }
+    public function del_dudi(){
+         $di=$this->input->post('di');
+         $where=array('DUDI_ID'=>$di);
+        $this->M_pkl->deleteData('prk_dudi',$where);
         redirect('Dudi');
     }
 }

@@ -4,7 +4,9 @@
                     <div class="col-md-11">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">Edit Siswa </h4>
+                                <h4 class="title">Edit Siswa | <a href="<?php echo base_url()?>index.php/Siswa">
+                                      << Kembali Ke List Siswa
+                                    </a></h4>
                             </div>
                             <div class="content">
                                 <form action="<?php echo base_url()?>index.php/Siswa/upd_siswa" method="post">

@@ -4,7 +4,9 @@
                     <div class="col-md-11">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">Tambah Siswa </h4>
+                                <h4 class="title">Tambah Siswa | <a href="<?php echo base_url()?>index.php/Siswa">
+                                      << Kembali Ke List Siswa
+                                    </a></h4>
                             </div>
                             <div class="content">
                                 <form action="<?php echo base_url()?>index.php/Siswa/add_siswa" method="post">
@@ -18,7 +20,15 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>KELAS</label>
-                                                <input type="text" class="form-control" name="sk">
+                                                <select name="sk" class="form-control">
+                                                    <?php
+                                                    foreach($kelas as $k){
+                                                        ?>
+                                                    <option value="<?php echo $k->JURKEL_ID; ?>"> <?php echo $k->JURKEL_ID; ?> </option>
+                                                    <?php
+                                                    }
+                                                    ?>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
@@ -52,7 +62,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>HP Ortu</label>
-                                                <input type="number" class="form-control" name="so" placeholder="HP Orang Tua Siswa">
+                                                <input type="text" class="form-control" name="so" placeholder="HP Orang Tua Siswa">
                                             </div>
                                         </div>
                                     </div>

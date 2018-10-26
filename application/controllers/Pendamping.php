@@ -4,6 +4,7 @@ class Pendamping extends CI_Controller{
         parent::__construct();
         $this->load->helper('url');
         $this->load->model('M_Pendamping');
+        $this->load->model('M_pkl');
     }
     public function index(){
          if(empty($this->session->userdata('pv'))){
@@ -32,49 +33,60 @@ class Pendamping extends CI_Controller{
          }
         
     }
-    public function Siswa_ed($id){
-        if(empty($this->session->userdata('pv'))){
-             redirect(base_url('index.php/Login'));
-         }else{
-            if($this->session->userdata('as') == "DUDI"){
-                redirect(base_url('index.php/Login'));
-            }elseif($this->session->userdata('as') == "PEGAWAI"){
-                $menu['class']="siswa";
-                $this->load->view('header',$menu);
-                $where = $id;
-                $sw=$this->M_Siswa->siswa_ed($where)->result();
-                $di=$this->M_Dudi->dudi_list()->result();
-                $where = $id;
-                $data=['siswa'=>$sw,'dudi'=>$di];
-                $this->load->view('siswa_ed',$data);
-                $this->load->view('footer');   
-            }else{
-                redirect(base_url('index.php/Login'));
-            }
-             
-         }
-        
-    }
-    public function upd_siswa(){
-        $si=$this->input->post('si');
-        $sn=$this->input->post('sn');
-        $sj=$this->input->post('sj');
-        $sa=$this->input->post('sa');
-        $sh=$this->input->post('sh');
-        $so=$this->input->post('so');
-        $di=$this->input->post('di');
+    public function ed_pgw(){
+        $pi=$this->input->post('pi');
+        $pnip=$this->input->post('pnip');
+        $pn=$this->input->post('pn');
+        $ph=$this->input->post('ph');
+        $pa=$this->input->post('pa');
 
-        $data=array(
-            'SW_NAMA'=>$sn,
-            'SW_JK'=>$sj,
-            'SW_ALAMAT'=>$sa,
-            'SW_HP'=>$sh,
-            'SW_HP_ORTU'=>$so,
-            'DUDI_ID'=>$di            
+        $fields=array(
+            'PGW_NIP'=>$pnip,
+            'PGW_NAMA'=>$pn,
+            'PGW_ALAMAT'=>$pa,
+            'PGW_TELEPON'=>$ph
             );
-        $where=array('SW_NIS'=>$si);
-        $this->M_Siswa->updatesiswa($where,$data,'prk_siswa');
-        redirect('Siswa');
+        $where=array('PGW_ID'=>$pi);
+        $this->M_pkl->updateData('prk_pegawai',$fields,$where);
+        redirect('Pendamping');
+    }
+    
+     public function add_pgw(){   
+        $pi=$this->input->post('pi');
+        $pn=$this->input->post('pn');
+        $ph=$this->input->post('ph');
+        $pa=$this->input->post('pa');
+        $pl=$this->input->post('pl');
+         $pu="-";$pp="-";
+             
+        if($pl=="checked"){
+            $pl="1";
+            $pu=$this->input->post('pu');
+            $pp=$this->input->post('pp');
+        }else{
+            $pl="0";
+        }
+        $data=array(
+            'PGW_NIP'=>$pi,
+            'PGW_NAMA'=>$pn,
+            'PGW_TELEPON'=>$ph,
+            'PGW_ALAMAT'=>$pa,
+            'PGW_LEVEL'=>$pl,
+            'PGW_USERNAME'=>$pu,
+            'PGW_PASSWORD'=>$pp,
+            'PGW_STATUS'=>1
+            );
+        $this->M_pkl->saveData('prk_pegawai',$data);
+        redirect('pendamping');
+    }
+     public function del_pgw(){
+         $pi=$this->input->post('pi');
+         $fields=array(
+            'PGW_STATUS'=>'0'
+            );
+         $where=array('PGW_ID'=>$pi);
+        $this->M_pkl->updateData('prk_pegawai',$fields,$where);
+        redirect('Pendamping');
     }
 }
 ?>

@@ -5,7 +5,7 @@
                         <div class="card">
                             <div class="header">
                                 <div class="col-md-6">
-                                <h4 class="title">Daftar Guru Pendamping Prakerin Periode 2017/2018 </h4>
+                                <h4 class="title">Daftar Guru Pendamping PKL Periode 2017/2018 </h4>
                                 </div><br><br>
                                 <div class="row"></div>
                                 <div class="col-md-4">
@@ -18,24 +18,41 @@
                                 <table class="table table-hover table-striped" id="tabel_data">
                                     <thead>
                                         <th>Kode</th>
-                                    	<th>Nama</th>
+                                    	<th>NIP</th>
+                                        <th>Nama</th>
                                         <th>HP</th>
                                         <th>Alamat</th>
+                                        <th>Level</th>
                                         <th>Opsi</th>
                                     </thead>
                                     <tbody>
                                         <?php
                                         foreach($pendamping as $pd){
+                                            $lvl;
+                                            if($pd->PGW_LEVEL==0){
+                                                $lvl="Guru Pendamping";
+                                            }else{
+                                                $lvl="POKJA";
+                                            }
                                             ?>
                                         <tr>
                                         	<td><?php echo $pd->PGW_ID;?></td>
+                                            <td><?php echo $pd->PGW_NIP ;?></td>
                                             <td><?php echo $pd->PGW_NAMA;?></td>
                                         	<td><?php echo $pd->PGW_TELEPON;?></td>
                                         	<td><?php echo $pd->PGW_ALAMAT;?></td>
+                                            <td><?php echo $lvl;?></td>
                                             <td>
-                                                <a href="#" data-toggle="modal" data-target="#pendampingEd"  class="btn btn-xs btn-info"> Edit</a>
+                                                <a href="#" data-toggle="modal" data-target="#pendampingEd" 
+                                                   pi="<?php echo $pd->PGW_ID;?>"
+                                                   pnip="<?php echo $pd->PGW_NIP;?>"
+                                                   pn="<?php echo $pd->PGW_NAMA;?>"
+                                                   ph="<?php echo $pd->PGW_TELEPON;?>"
+                                                   pa="<?php echo $pd->PGW_ALAMAT;?>"
+                                                   class="tbl-edPgw"> <button class="btn btn-xs btn-info"> Edit</button></a>
                                                 &nbsp;&nbsp;
-                                                <a href="#" data-toggle="modal" data-target="#pendampingDel" class="btn btn-xs btn-danger"> Hapus</a>
+                                                <a href="#" data-toggle="modal" data-target="#pendampingDel" class="tbl-delPgw" pi="<?php echo $pd->PGW_ID;?>">
+                                                    <button class="btn btn-xs btn-danger"> Hapus</button></a>&nbsp;&nbsp;
                                             </td>
                                         </tr>
                                         <?php } ?>
@@ -75,35 +92,53 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Pendamping Prakerin</h4>
+        <h4 class="modal-title">Pendamping PKL</h4>
       </div>
+        <form action="<?php echo base_url()?>index.php/Pendamping/ed_pgw" method="post">
       <div class="modal-body">
           <table class="table table-hover table-striped">
+              <input type="hidden" class="form-control" required id="pi_ed" name="pi" >
             <tbody>
                 <tr>
-                    <th>Kode</th><td>:</td><td><input type="readonly" class="form-control" name="nm"  id="nm_edit"></td>
-                </tr>  
+                    <th>NIP</th><td>:</td><td><input type="text" class="form-control" required id="pnip_ed" name="pnip" ></td>
+                </tr>
                 <tr>
-                    <th>Nama</th><td>:</td><td><input type="text" class="form-control" name="nm"  id="nm_edit"></td>
+                    <th>Nama</th><td>:</td><td><input type="text" class="form-control" required id="pn_ed" name="pn" ></td>
                 </tr>                
                 <tr>
-                    <th>Alamat</th><td>:</td><td><input type="text" class="form-control" name="al"  id="al_edit"></td>
+                    <th>Alamat</th><td>:</td><td><input type="text" class="form-control" required id="pa_ed" name="pa" ></td>
                 </tr>
                 <tr>
-                    <th>HP</th><td>:</td><td><input type="text" class="form-control" name="hp" id="hp_edit"></td>
+                    <th>HP</th><td>:</td><td><input type="text" class="form-control" required id="ph_ed" name="ph"></td>
                 </tr>
-                
-           </tbody>
-          </table>                
+                <!--<tr>
+                    <th>Level</th><td>:</td><td><input type="checkbox" name="pl" id="ceklvl" value="1">&nbsp;POKJA PKL</td>
+                </tr>-->
+                </tbody>
+          </table> 
+                <!--<div class="row" id="akun" style="display: none">
+                    <div class="col-md-12">
+                    <h5>Akun POKJA PKL</h5>
+                    </div>
+                    
+                    <div class="col-md-12">
+                <label>Username</label><input type="text" class="form-control" name="pu">
+                        </div>
+                     <div class="col-md-12">
+                <label>Password</label><input type="password" class="form-control" name="pp">
+                    </div>
+                </div>-->            
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-success"  data-dismiss="modal">Simpan</button>
+        <button type="submit" class="btn btn-success" >Simpan</button>
           <button type="button" class="btn btn-danger" data-dismiss="modal">Tutup</button>
       </div>
+            </form>
     </div>
 
   </div>
 </div>
+
 
 <div id="pendampingIn" class="modal fade" role="dialog">
   <div class="modal-dialog">
@@ -112,31 +147,49 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Pendamping Prakerin</h4>
+        <h4 class="modal-title">Pendamping PKL</h4>
       </div>
+        <form action="<?php echo base_url()?>index.php/Pendamping/add_pgw" method="post">
       <div class="modal-body">
           <table class="table table-hover table-striped">
             <tbody>
                 <tr>
-                    <th>Kode</th><td>:</td><td><input type="readonly" class="form-control" name="nm" ></td>
-                </tr>  
+                    <th>NIP</th><td>:</td><td><input type="text" class="form-control" required name="pi" ></td>
+                </tr>
                 <tr>
-                    <th>Nama</th><td>:</td><td><input type="text" class="form-control" name="nm" ></td>
+                    <th>Nama</th><td>:</td><td><input type="text" class="form-control" required name="pn" ></td>
                 </tr>                
                 <tr>
-                    <th>Alamat</th><td>:</td><td><input type="text" class="form-control" name="al" ></td>
+                    <th>Alamat</th><td>:</td><td><input type="text" class="form-control" required name="pa" ></td>
                 </tr>
                 <tr>
-                    <th>HP</th><td>:</td><td><input type="text" class="form-control" name="hp"></td>
+                    <th>HP</th><td>:</td><td><input type="text" class="form-control" required name="ph"></td>
                 </tr>
-                
-           </tbody>
-          </table>                
+                <tr>
+                    <th>Level</th><td>:</td><td><input type="checkbox" name="pl" id="ceklvl" value="1">&nbsp;POKJA PKL</td>
+                </tr>
+                </tbody>
+          </table> 
+                <div class="row" id="akun" style="display: none">
+                    <div class="col-md-12">
+                    <h5>Akun POKJA PKL</h5>
+                    </div>
+                    
+                    <div class="col-md-12">
+                <label>Username</label><input type="text" class="form-control" name="pu">
+                        </div>
+                     <div class="col-md-12">
+                <label>Password</label><input type="password" class="form-control" name="pp">
+                    </div>
+                </div>
+                                
+                          
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-success"  data-dismiss="modal">Simpan</button>
+        <button type="submit" class="btn btn-success" >Simpan</button>
           <button type="button" class="btn btn-danger" data-dismiss="modal">Tutup</button>
       </div>
+            </form>
     </div>
 
   </div>
@@ -150,15 +203,18 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Pendamping Prakerin</h4>
+        <h4 class="modal-title">Pendamping PKL</h4>
       </div>
+      <form action="<?php echo base_url()?>index.php/Pendamping/del_pgw" method="post">
       <div class="modal-body">
+          <input type="hidden" name="pi" id="del_pi">
           Apakah Anda yakin meNONAKTIFKAN data ini ?        
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-danger"  data-dismiss="modal">Nonaktifkan</button>
+        <button type="submit" class="btn btn-danger" >Nonaktifkan</button>
           <button type="button" class="btn btn-success" data-dismiss="modal">Tutup</button>
       </div>
+        </form>
     </div>
 
   </div>

@@ -21,7 +21,7 @@
                                     <thead>
                                         <th>No.</th>
                                     	<th>DU/DI</th>
-                                    	<th>Pimpinan</th>
+                                    	<th>Penanggung Jawab</th>
                                         <th>Alamat</th>
                                         <th>Kontak</th>
                                         <th>Opsi</th>
@@ -38,7 +38,8 @@
                                             <td><?php echo $d->DUDI_ALAMAT;?></td>
                                             <td><?php echo $d->DUDI_TELEPON;?> <br> <?php echo $d->DUDI_EMAIL;?></td>
                                             <td><a href="<?php echo base_url()?>index.php/Dudi/Dudi_ed/<?php echo $d->DUDI_ID;?>" class="btn btn-xs btn-info"> Edit</a>
-                                                <a href="#" data-toggle="modal" data-target="#dudiDel" class="btn btn-xs btn-danger"> Hapus</a>&nbsp;&nbsp;
+                                                <a href="#" data-toggle="modal" data-target="#dudiDel" class="tbl-delDudi" di="<?php echo $d->DUDI_ID;?>">
+                                                    <button class="btn btn-xs btn-danger"> Hapus</button></a>&nbsp;&nbsp;
                                                 </td>
                                         </tr>
                                         <?php $no++; } ?>
@@ -80,12 +81,16 @@
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         <h4 class="modal-title">Hapus DU/DI</h4>
       </div>
+        <form action="<?php echo base_url()?>index.php/Dudi/del_dudi" method="post">
       <div class="modal-body">
+          <input type="hidden" name="di" id="del_di">
           <p>Apakah Anda yakin meNONAKTIFKAN data ini ?</p>   
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-danger">Hapus</button>
+        <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
       </div>
+            </form>
     </div>
 
   </div>

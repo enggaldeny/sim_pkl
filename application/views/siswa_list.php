@@ -24,8 +24,7 @@
                                     	<th>Nama</th>
                                     	<th>JK</th>
                                         
-                                        <th>HP Pribadi / Ortu </th>
-                                        <th>Du/Di</th>
+                                        <th>HP Pribadi / Ortu</th>
                                         <th>Opsi</th>
                                     </thead>
                                     <tbody>
@@ -39,8 +38,8 @@
                                         	<td><?php echo $s->SW_NAMA;?></td>
                                         	<td><?php echo $s->SW_JK;?></td>
                                            
-                                            <td><?php echo $s->SW_HP;?> <br> <?php echo $s->SW_HP_ORTU;?></td>
-                                            <td><?php echo $s->DUDI_NAMA;?></td>
+                                            <td><?php echo $s->SW_HP;?> / <?php echo $s->SW_HP_ORTU;?></td>
+                                           <!-- <td><?php //echo $s->DUDI_NAMA;?></td>-->
                                             <td>
                                                 <a href="#" data-toggle="modal" data-target="#siswaDudi" class="tbl-detail" id="tbl-detail"
                                                    si="<?php echo $s->SW_NIS;?>"
@@ -50,12 +49,8 @@
                                                    sh="<?php echo $s->SW_HP;?>"
                                                    so="<?php echo $s->SW_HP_ORTU;?>"
                                                    sa="<?php echo $s->SW_ALAMAT;?>"
-                                                   dn="<?php echo $s->DUDI_NAMA;?>"
-                                                   dp="<?php echo $s->DUDI_PIMPINAN;?>"
-                                                   da="<?php echo $s->DUDI_ALAMAT;?>"
-                                                   dt="<?php echo $s->DUDI_TELEPON;?>"
-                                                   de="<?php echo $s->DUDI_EMAIL;?>"
-                                                   ><button class="btn btn-xs btn-success"> Detail</button></a>
+                                                   
+                                                   ><button class="btn btn-xs btn-success"> DUDI</button></a>
                                                 &nbsp;&nbsp;
                                                 <a href="<?php echo base_url()?>index.php/Siswa/Siswa_ed/<?php echo $s->SW_NIS;?>" class="btn btn-xs btn-info"> Edit</a>
                                             </td>
@@ -71,7 +66,11 @@
                 </div>
             </div>
         </div>
-
+<!-- dn="<?php //echo $s->DUDI_NAMA;?>"
+                                                   dp="<?php //echo $s->DUDI_PIMPINAN;?>"
+                                                   da="<?php //echo $s->DUDI_ALAMAT;?>"
+                                                   dt="<?php //echo $s->DUDI_TELEPON;?>"
+                                                   de="<?php //echo $s->DUDI_EMAIL;?>" -->
 <footer class="footer">
             <div class="container-fluid">
                 <nav class="pull-left">
@@ -126,17 +125,18 @@
        <table class="table table-hover table-striped">
             <thead>
                 <th>Nama Du/Di</th>
-                <th>Pimpinan</th>
+                <th>Penanggung Jawab</th>
                 <th>Alamat</th>
                 <th>Kontak</th>
             </thead>
             <tbody>
                 
                 <tr>
-                    <td id="dn_edit"></td>
+                    <td colspan="4">BELUM PLOTTING DUDI</td>
+                    <!--<td id="dn_edit"></td>
                     <td id="dp_edit"></td>
                     <td id="da_edit"></td>
-                    <td id="dt_edit"></td>
+                    <td id="dt_edit"></td>-->
                 </tr>
            </tbody>
           </table>

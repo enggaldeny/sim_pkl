@@ -4,7 +4,9 @@
                     <div class="col-md-11">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">Edit DU/DI </h4>
+                                <h4 class="title">Edit DU/DI | <a href="<?php echo base_url()?>index.php/Dudi/Dudi">
+                                      << Kembali Ke List DU/DI
+                                    </a></h4>
                             </div>
                             <div class="content">
                                 <form action="<?php echo base_url()?>index.php/Dudi/upd_dudi" method="post">
