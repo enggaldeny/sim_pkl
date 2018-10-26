@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 23, 2018 at 07:46 AM
+-- Generation Time: Oct 26, 2018 at 05:11 PM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -123,7 +123,7 @@ CREATE TABLE `prk_dudi` (
 --
 
 INSERT INTO `prk_dudi` (`DUDI_ID`, `DUDI_NAMA`, `DUDI_PIMPINAN`, `DUDI_ALAMAT`, `DUDI_TELEPON`, `DUDI_EMAIL`, `DUDI_USERNAME`, `DUDI_PASSWORD`) VALUES
-(1, 'CV Mitra Maya Mandiri', 'Sudarko, S.Kom, M.Kom', 'Jl.Bangka 4 No.21 Sumbersari-Jember', '087654327198', 'm3net.admin@gmail.com', 'm3net', '59733b7875a62a9401da7204fbd1c4b7'),
+(1, 'CV Mitra Maya Mandiri nET', 'Sudarko, S.Kom, M.Kom', 'Jl.Bangka 4 No.21 Sumbersari-Jember', '087654327198', 'm3net.admin@gmail.com', 'm3net', '59733b7875a62a9401da7204fbd1c4b7'),
 (2, 'KPTR "MITRA USAHA" SEMBORO', '-', 'Jl.Kamardian No.1 Sidomekar Semboro', '-', '-', '', ''),
 (3, 'Semboro Mini Market', '-', 'Jl.Yos Sudarso 127 Semboro', '-', '-', '', ''),
 (4, 'KSP Mitra Usaha Mandiri', '-', 'Jl. Kamardikan Ds. Sidomekar Semboro', '-', '-', '', ''),
@@ -239,15 +239,18 @@ CREATE TABLE `prk_pegawai` (
   `PGW_ALAMAT` varchar(50) NOT NULL,
   `PGW_TELEPON` varchar(12) NOT NULL,
   `PGW_USERNAME` varchar(12) NOT NULL,
-  `PGW_PASSWORD` varchar(100) NOT NULL
+  `PGW_PASSWORD` varchar(100) NOT NULL,
+  `PGW_LEVEL` int(1) NOT NULL COMMENT '0=GURU;1=POKJA',
+  `PGW_STATUS` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `prk_pegawai`
 --
 
-INSERT INTO `prk_pegawai` (`PGW_ID`, `PGW_NIP`, `PGW_NAMA`, `PGW_ALAMAT`, `PGW_TELEPON`, `PGW_USERNAME`, `PGW_PASSWORD`) VALUES
-(1, '19234500100103998712', 'Dewi Qurotul A''yun', 'Semboro, Jember', '081098211005', 'dewi', 'ed1d859c50262701d92e5cbf39652792');
+INSERT INTO `prk_pegawai` (`PGW_ID`, `PGW_NIP`, `PGW_NAMA`, `PGW_ALAMAT`, `PGW_TELEPON`, `PGW_USERNAME`, `PGW_PASSWORD`, `PGW_LEVEL`, `PGW_STATUS`) VALUES
+(1, '19234500100103998712', 'Dewi Qurotul A''yun', 'Semboro, Jember', '081098211005', 'dewiqu', 'ed1d859c50262701d92e5cbf39652792', 1, 1),
+(2, '-', 'Surita, S.Pd', 'Pondok Jeruk, Tanggul', '-', '-', '-', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -271,6 +274,7 @@ CREATE TABLE `prk_siswa` (
 --
 
 INSERT INTO `prk_siswa` (`SW_NIS`, `SW_NAMA`, `SW_JK`, `SW_ALAMAT`, `SW_HP`, `SW_HP_ORTU`, `JURKEL_ID`, `DUDI_ID`) VALUES
+('1', 'Abdul Qodir', 'L', '-', '-', '-', '11 MM 1', 0),
 ('990201308211001', 'ABDILLAH ARIFIN', 'L', '-', '-', '', '11 RPL 1', 1),
 ('990201308211002', 'ACHMAD ROFIQ HAMDANI', 'L', '-', '-', '', '11 RPL 1', 1),
 ('990201308211003', 'ADAM KUSUMA WARDANA', 'L', '-', '-', '', '11 RPL 1', 1);
@@ -370,7 +374,7 @@ ALTER TABLE `prk_nilai`
 -- AUTO_INCREMENT for table `prk_pegawai`
 --
 ALTER TABLE `prk_pegawai`
-  MODIFY `PGW_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `PGW_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
