@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 26, 2018 at 05:11 PM
+-- Generation Time: Oct 27, 2018 at 06:48 AM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -27,32 +27,33 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `prk_detail_kategori` (
-  `DK_ID` varchar(4) NOT NULL,
+  `DK_ID` int(2) NOT NULL,
   `KTG_ID` varchar(2) NOT NULL,
-  `DK_NAMA` varchar(100) NOT NULL
+  `DK_NAMA` varchar(100) NOT NULL,
+  `BOBOT` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `prk_detail_kategori`
 --
 
-INSERT INTO `prk_detail_kategori` (`DK_ID`, `KTG_ID`, `DK_NAMA`) VALUES
-('D1-1', 'D1', 'Menyampaikan sesuatu berdasarkan keadaan yang sebenarnya'),
-('D1-2', 'D1', 'Tidak meutupi ksalahan yang terjadi'),
-('D1-3', 'D1', 'Tidak mecontek atau melihat data/pekerjaan orang lain'),
-('D1-4', 'D1', 'Mencantumkan sumber belajar dari yang dikutip/dipelajari'),
-('D2-1', 'D2', 'Pelaksanaan tugas piket secara teratur'),
-('D2-2', 'D2', 'Peran serta aktif dalam kegiatan diskusi kelompok'),
-('D2-3', 'D2', 'Megajukan usul pemecahan masalah'),
-('D2-4', 'D2', 'mengerjakan tugas sesuai yag ditugaskan'),
-('D3-1', 'D3', 'Tertib mengikuti instruksi'),
-('D3-2', 'D3', 'Mengerjakan tugas tepat waktu'),
-('D3-3', 'D3', 'Tidak melakukan kegiatan yang diminta'),
-('D3-4', 'D3', 'Tidak membuat kondisi kelas menjadi tidak kondusif'),
-('D4-1', 'D4', 'Berinteraksi degan teman secara ramah'),
-('D4-2', 'D4', 'Berkomunikasi dengan bahasa yang tidak menyinggung perasaan'),
-('D4-3', 'D4', 'Menggunakan bahasa tubuh yang bersahabat'),
-('D4-4', 'D4', 'Berperilaku sopan');
+INSERT INTO `prk_detail_kategori` (`DK_ID`, `KTG_ID`, `DK_NAMA`, `BOBOT`) VALUES
+(1, '1', 'Menyampaikan sesuatu berdasarkan keadaan yang sebenarnya', 0),
+(2, '1', 'Tidak menutupi ksalahan yang terjadi', 0),
+(3, '1', 'Tidak mecontek atau melihat data/pekerjaan orang lain', 0),
+(4, '1', 'Mencantumkan sumber belajar dari yang dikutip/dipelajari', 0),
+(5, '2', 'Pelaksanaan tugas piket secara teratur', 0),
+(6, '2', 'Peran serta aktif dalam kegiatan diskusi kelompok', 0),
+(7, '2', 'Mengajukan usul pemecahan masalah', 0),
+(8, '2', 'Mengerjakan tugas sesuai yag ditugaskan', 0),
+(9, '3', 'Tertib mengikuti instruksi', 25),
+(10, '3', 'Mengerjakan tugas tepat waktu', 25),
+(11, '3', 'Tidak melakukan kegiatan yang diminta', 0),
+(12, '3', 'Tidak membuat kondisi kelas menjadi tidak kondusif', 0),
+(13, '4', 'Berinteraksi degan teman secara ramah', 0),
+(14, '4', 'Berkomunikasi dengan bahasa yang tidak menyinggung perasaan', 0),
+(15, '4', 'Menggunakan bahasa tubuh yang bersahabat', 0),
+(16, '4', 'Berperilaku sopan', 0);
 
 -- --------------------------------------------------------
 
@@ -158,22 +159,19 @@ INSERT INTO `prk_jurusan` (`JUR_ID`, `JUR_NAMA`) VALUES
 --
 
 CREATE TABLE `prk_kategori` (
-  `KTG_ID` varchar(3) NOT NULL,
-  `KTG_NAMA` varchar(20) NOT NULL,
-  `KTG_BOBOT` int(2) NOT NULL
+  `KTG_ID` int(1) NOT NULL,
+  `KTG_NAMA` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `prk_kategori`
 --
 
-INSERT INTO `prk_kategori` (`KTG_ID`, `KTG_NAMA`, `KTG_BOBOT`) VALUES
-('D1', 'JUJUR', 20),
-('D2', 'TANGGUNG JAWAB', 10),
-('D3', 'DISIPLIN', 20),
-('D4', 'SANTUN', 15),
-('D5', 'PEMBEKALAN PESERTA', 15),
-('D6', 'EVALUASI HASIL KERJA', 20);
+INSERT INTO `prk_kategori` (`KTG_ID`, `KTG_NAMA`) VALUES
+(1, 'JUJUR'),
+(2, 'TANGGUNG JAWAB'),
+(3, 'DISIPLIN'),
+(4, 'SANTUN');
 
 -- --------------------------------------------------------
 
@@ -288,9 +286,9 @@ CREATE TABLE `v_nilai_siswa` (
 `NL_ID` int(11)
 ,`SW_NIS` varchar(20)
 ,`DUDI_ID` int(11)
-,`KTG_ID` varchar(3)
+,`KTG_ID` int(1)
 ,`KTG_NAMA` varchar(20)
-,`DK_ID` varchar(4)
+,`DK_ID` int(2)
 ,`DK_NAMA` varchar(100)
 ,`NILAI` int(1)
 );
@@ -361,10 +359,20 @@ ALTER TABLE `prk_siswa`
 --
 
 --
+-- AUTO_INCREMENT for table `prk_detail_kategori`
+--
+ALTER TABLE `prk_detail_kategori`
+  MODIFY `DK_ID` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+--
 -- AUTO_INCREMENT for table `prk_dudi`
 --
 ALTER TABLE `prk_dudi`
   MODIFY `DUDI_ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT for table `prk_kategori`
+--
+ALTER TABLE `prk_kategori`
+  MODIFY `KTG_ID` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `prk_nilai`
 --

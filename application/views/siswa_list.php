@@ -5,7 +5,7 @@
                         <div class="card">
                             <div class="header">
                                 <div class="col-md-6">
-                                <h4 class="title">Daftar Siswa Prakerin Periode 2017/2018 </h4>
+                                <h4 class="title">Daftar Siswa PKL Periode 2017/2018 </h4>
                                 </div><br><br>
                                 <div class="row"></div>
                                 <div class="col-md-4">
