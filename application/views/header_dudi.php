@@ -29,7 +29,7 @@
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
     <link href="<?php echo base_url()?>assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
-
+    
 </head>
 <body>
 
@@ -62,8 +62,8 @@
                         <p>Laporan</p>
                     </a>
                 </li>-->
-                <li>
-                    <a href="#">
+                <li class="<?php if ($class=='setting'){ echo 'active';}else{echo '';};?>">
+                    <a href="<?php echo base_url()?>index.php/Setting">
                         <i class="pe-7s-key"></i>
                         <p>Setting Akun</p>
                     </a>

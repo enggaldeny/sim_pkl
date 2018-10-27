@@ -81,8 +81,8 @@
                         <p>Laporan</p>
                     </a>
                 </li>-->
-                <li>
-                    <a href="#">
+                <li class="<?php if ($class=='setting'){ echo 'active';}else{echo '';};?>">
+                    <a href="<?php echo base_url()?>index.php/Setting">
                         <i class="pe-7s-key"></i>
                         <p>Setting Akun</p>
                     </a>
