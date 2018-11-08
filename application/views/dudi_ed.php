@@ -15,15 +15,14 @@
                                         foreach($dudi as $d);
                                             ?>
                                     <div class="row">
-                                        <div class="col-md-6">
+                                        <div class="col-md-2">
                                             <div class="form-group">
                                                 <label>Kode DU/DI</label>
                                                 <input type="text" class="form-control" READONLY name="di" value="<?php echo $d->DUDI_ID ?>">
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
+                                    
+                                        <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>Nama DU/DI</label>
                                                 <input type="text" name="dn" value="<?php echo $d->DUDI_NAMA ?>" class="form-control">
@@ -31,7 +30,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>Nama Pimpinan</label>
+                                                <label>Nama Penanggung Jawab</label>
                                                 <input type="text" name="dp" value="<?php echo $d->DUDI_PIMPINAN ?>" class="form-control">
                                             </div>
                                         </div>
@@ -40,14 +39,14 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>Telepon</label>
+                                                <label>Telepon Kantor / Penanggung Jawab</label>
                                                 <input type="text" class="form-control" name="dt" value="<?php echo $d->DUDI_TELEPON ?>"placeholder="Judul Berita">
                                              
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>Email</label>
+                                                <label>Email Kantor / Penanggung Jawab</label>
                                                 <input type="text" class="form-control" name="de" value="<?php echo $d->DUDI_EMAIL ?>" placeholder="Judul Berita">
                                             </div>
                                         </div>
@@ -56,9 +55,33 @@
                                     <div class="row">
                                         <div class="col-md-8">
                                             <div class="form-group">
-                                                <label>Alamat</label>
+                                                <label>Alamat Kantor</label>
                                                 <textarea id="ckeditor_full" name="da"  class="form-control"><?php echo $d->DUDI_ALAMAT ?></textarea>
                                                 
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Username</label>
+                                                <input type="text" class="form-control" name="du" value="<?php echo $d->DUDI_USERNAME; ?>">
+                                             
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Password</label>
+                                                <input type="password" class="form-control" name="dpw">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Ketik Ulang Password Baru</label>
+                                                <input type="password" class="form-control" name="dpwk">
+                                             
                                             </div>
                                         </div>
                                     </div>

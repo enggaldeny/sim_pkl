@@ -4,14 +4,10 @@ class Dudi extends CI_Controller{
         parent::__construct();
         $this->load->helper('url');
         $this->load->model('M_Dudi');
-        $this->load->model('M_pkl');
+        $this->load->model('M_pkl');       
     }
     public function index(){
-         if(empty($this->session->userdata('pv'))){
-             redirect(base_url('index.php/Login'));
-         }else{
-            $this->Dudi();
-         }
+        $this->dudi();
         
     }
     public function Dudi(){
@@ -77,13 +73,17 @@ class Dudi extends CI_Controller{
         $da=$this->input->post('da');
         $dt=$this->input->post('dt');
         $de=$this->input->post('de');
+        $du=$this->input->post('du');
+        $dpw=$this->input->post('dpw');
 
          $data=array(
             'DUDI_NAMA'=>$dn,
             'DUDI_PIMPINAN'=>$dp,
             'DUDI_ALAMAT'=>$da,
             'DUDI_TELEPON'=>$dt,
-            'DUDI_EMAIL'=>$de
+            'DUDI_EMAIL'=>$de,
+            'DUDI_USERNAME'=>$du,
+            'DUDI_PASSWORD'=>$dw
             );
         $this->M_Dudi->insertdudi($data,'prk_dudi');
         redirect('Dudi');
@@ -95,17 +95,66 @@ class Dudi extends CI_Controller{
         $da=$this->input->post('da');
         $dt=$this->input->post('dt');
         $de=$this->input->post('de');
-
-        $data=array(
+        $du=$this->input->post('du');
+        $dpw=$this->input->post('dpw');
+        $dpwk=$this->input->post('dpwk');
+        if (!empty($dpw)){
+            if($dpw == $dpwk){
+             $data=array(
+            'DUDI_NAMA'=>$dn,
+            'DUDI_PIMPINAN'=>$dp,
+            'DUDI_ALAMAT'=>$da,
+            'DUDI_TELEPON'=>$dt,
+            'DUDI_EMAIL'=>$de,
+            'DUDI_USERNAME'=>$du,
+            'DUDI_PASSWORD'=>md5($dpw)
+            );
+            $where=array('DUDI_ID'=>$di);
+            $update=$this->M_pkl->updateData('prk_dudi', $data, $where);
+            if ($update > 0) {
+                 //echo $update;
+                    $_SESSION['alert_sales_type'] = "success";
+                    $_SESSION['alert_sales_show'] = "show";
+                    $_SESSION['alert_sales_msg'] = "Berhasil! Data DUDI telah diperbarui.";
+                    redirect(base_url("index.php/Dudi"));
+                }else{
+                 //echo $update;
+                    $_SESSION['alert_sales_type'] = "danger";
+                    $_SESSION['alert_sales_show'] = "show";
+                    $_SESSION['alert_sales_msg'] = "Kesalahan! Data DUDI Gagal disimpan.";
+                    redirect(base_url("index.php/Dudi"));
+                }
+            }else{
+                $_SESSION['alert_sales_type'] = "danger";
+                $_SESSION['alert_sales_show'] = "show";
+                $_SESSION['alert_sales_msg'] = "Kesalahan! Password harus sama.";
+                redirect(base_url("index.php/Dudi"));
+            }
+        }else{
+            $data=array(
             'DUDI_NAMA'=>$dn,
             'DUDI_PIMPINAN'=>$dp,
             'DUDI_ALAMAT'=>$da,
             'DUDI_TELEPON'=>$dt,
             'DUDI_EMAIL'=>$de
-            );
-        $where=array('DUDI_ID'=>$di);
-        $this->M_Dudi->updatedudi($where,$data,'prk_dudi');
-        redirect('Dudi');
+                );
+            $where=array('DUDI_ID'=>$di);
+            $update=$this->M_pkl->updateData('prk_dudi', $data, $where);
+            if ($update > 0) {
+                //echo $update;
+                $_SESSION['alert_sales_type'] = "success";
+                $_SESSION['alert_sales_show'] = "show";
+                $_SESSION['alert_sales_msg'] = "Berhasil! Data DUDI telah diperbarui.";
+                redirect(base_url("index.php/Dudi"));
+            }else{
+                //echo $update;
+                $_SESSION['alert_sales_type'] = "danger";
+                $_SESSION['alert_sales_show'] = "show";
+                $_SESSION['alert_sales_msg'] = "Kesalahan! Data DUDI Gagal disimpan.";
+                redirect(base_url("index.php/Dudi"));
+            }       
+        }
+       
     }
     public function del_dudi(){
          $di=$this->input->post('di');

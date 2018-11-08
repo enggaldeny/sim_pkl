@@ -85,9 +85,14 @@
         
     });
 </script>
+    <style type="text/css">
+        #gbrGr {width: 50px; margin:auto;}
+        #gbrSw {width: 50px; margin:auto;}
+    </style>
 <script>
 $(function(){
 	$('#tabel_data').DataTable();
+    $('#tabel_data2').DataTable();
 });
     $(function(){
 $(".tbl-delDudi").click(function(event){
@@ -107,9 +112,61 @@ $(".tbl-edPgw").click(function(event){
     });
     
     $(function(){
-$(".tbl-delPgw").click(function(event){
-       //alert ("Haii");
+        $(".tbl-delPgw").click(function(event){
         $("#del_pi").val($(this).attr("pi"));
+    });
+    });
+    
+    $(function(){
+        $(".tbl-detSw").click(function(event){
+            document.getElementById("sd_nis").innerHTML =$(this).attr("snis");
+            document.getElementById("sd_nm").innerHTML =$(this).attr("snm");
+            document.getElementById("sd_kl").innerHTML =$(this).attr("skl");
+            document.getElementById("sd_al").innerHTML =$(this).attr("sal");
+            document.getElementById("sd_jk").innerHTML =$(this).attr("sjk");
+            document.getElementById("sd_hp").innerHTML =$(this).attr("shp");
+            document.getElementById("sd_hpo").innerHTML =$(this).attr("shpo");
+	   var myImage = new Image(100, 100);
+	   myImage.src = '<?php echo base_url()?>assets/img/default-avatar.png';
+	   x = document.getElementById("gbrSw");
+	   x.appendChild(myImage);
+    });
+    });
+    
+     $(function(){
+        $(".tbl-detGr").click(function(event){
+        document.getElementById("gd_nip").innerHTML =$(this).attr("gnip");
+        document.getElementById("gd_nm").innerHTML =$(this).attr("gnm");
+        document.getElementById("gd_al").innerHTML =$(this).attr("gal");
+        document.getElementById("gd_hp").innerHTML =$(this).attr("ghp");
+	   var myImage = new Image(100, 100);
+	   myImage.src = '<?php echo base_url()?>assets/img/default-avatar.png';
+	   x = document.getElementById("gbrGr");
+	   x.appendChild(myImage);
+    });
+    });
+    
+    function delGbr(){
+       $("#gbrGr").html("");
+        $("#gbrSw").html("");
+    }
+    
+
+    
+    $(function(){
+        $(".tbl-edPrm").click(function(event){
+        $("#ki_ed").val($(this).attr("ki"));
+        $("#kn_ed").val($(this).attr("kn"));
+    });
+    });
+    
+    $(function(){
+        $(".tbl-edDetPrm").click(function(event){
+        $("#dki_ed").val($(this).attr("dki"));
+        $("#dk_ed").val($(this).attr("dk"));
+        $("#kt_ed").val($(this).attr("kt"));
+        $("#bb_ed").val($(this).attr("bb"));
+            
     });
     });
     
