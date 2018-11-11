@@ -62,6 +62,7 @@
 
 	<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
 	<script src="<?php echo base_url()?>assets/js/demo.js"></script>
+    <script src="<?php echo base_url()?>assets/js/jquery.flexdatalist.min.js"></script>
 <script>
     $( document ).ready(function() {
         demo.initChartist();
@@ -89,7 +90,8 @@
         #gbrGr {width: 50px; margin:auto;}
         #gbrSw {width: 50px; margin:auto;}
     </style>
-<script>
+<script>    
+
 $(function(){
 	$('#tabel_data').DataTable();
     $('#tabel_data2').DataTable();

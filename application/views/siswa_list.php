@@ -30,28 +30,37 @@
                                     <tbody>
                                         <?php
                                         foreach($siswa as $s){
-                                            if ($s->JURKEL_ID=='')
+                                            $ket;
+                                            if ($s->DUDI_ID==0){
+                                                $ket="<button class='btn btn-xs btn-danger'>BELUM PLOTTING</button>";
+                                            }else{
+                                                $ket="<a href='#' data-toggle='modal' data-target='#siswaDudi' class='tbl-detail' id='tbl-detail'
+                                                   si='$s->SW_NIS'
+                                                   sn='$s->SW_NAMA'
+                                                   sk='$s->JURKEL_ID'
+                                                   sj='$s->SW_JK'
+                                                   sh='$s->SW_HP'
+                                                   so='$s->SW_HP_ORTU'
+                                                   sa='$s->SW_ALAMAT'
+                                                   dn='$s->DUDI_NAMA'
+                                                   dp='$s->DUDI_PIMPINAN'
+                                                   da='$s->DUDI_ALAMAT'
+                                                   dt='$s->DUDI_TELEPON'
+                                                   de='$s->DUDI_EMAIL'
+                                                   >
+                                                   <button class='btn btn-xs btn-success'> DUDI</button></a>";
+                                            }
                                             ?>
                                         <tr>
                                         	<td><?php echo $s->SW_NIS;?></td>
                                             <td><?php echo $s->JURKEL_ID;?></td>
                                         	<td><?php echo $s->SW_NAMA;?></td>
-                                        	<td><?php echo $s->SW_JK;?></td>
-                                           
+                                        	<td><?php echo $s->SW_JK;?></td>                                           
                                             <td><?php echo $s->SW_HP;?> / <?php echo $s->SW_HP_ORTU;?></td>
                                            <!-- <td><?php //echo $s->DUDI_NAMA;?></td>-->
+                                            <td><?php echo $ket ?>  
+                                                </td>
                                             <td>
-                                                <a href="#" data-toggle="modal" data-target="#siswaDudi" class="tbl-detail" id="tbl-detail"
-                                                   si="<?php echo $s->SW_NIS;?>"
-                                                   sn="<?php echo $s->SW_NAMA;?>"
-                                                   sk="<?php echo $s->JURKEL_ID;?>"
-                                                   sj="<?php echo $s->SW_JK;?>"
-                                                   sh="<?php echo $s->SW_HP;?>"
-                                                   so="<?php echo $s->SW_HP_ORTU;?>"
-                                                   sa="<?php echo $s->SW_ALAMAT;?>"
-                                                   
-                                                   ><button class="btn btn-xs btn-success"> DUDI</button></a>
-                                                &nbsp;&nbsp;
                                                 <a href="<?php echo base_url()?>index.php/Siswa/Siswa_ed/<?php echo $s->SW_NIS;?>" class="btn btn-xs btn-info"> Edit</a>
                                             </td>
                                         </tr>
@@ -66,11 +75,6 @@
                 </div>
             </div>
         </div>
-<!-- dn="<?php //echo $s->DUDI_NAMA;?>"
-                                                   dp="<?php //echo $s->DUDI_PIMPINAN;?>"
-                                                   da="<?php //echo $s->DUDI_ALAMAT;?>"
-                                                   dt="<?php //echo $s->DUDI_TELEPON;?>"
-                                                   de="<?php //echo $s->DUDI_EMAIL;?>" -->
 <footer class="footer">
             <div class="container-fluid">
                 <nav class="pull-left">
@@ -132,11 +136,10 @@
             <tbody>
                 
                 <tr>
-                    <td colspan="4">BELUM PLOTTING DUDI</td>
-                    <!--<td id="dn_edit"></td>
-                    <td id="dp_edit"></td>
-                    <td id="da_edit"></td>
-                    <td id="dt_edit"></td>-->
+                    <td><label id="dn_edit"></label></td>
+                    <td><label id="dp_edit"></label></td>
+                    <td><label id="da_edit"></label></td>
+                    <td><label id="dt_edit"></label> / <label id="de_edit"></label></td>
                 </tr>
            </tbody>
           </table>

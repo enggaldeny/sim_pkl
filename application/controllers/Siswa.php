@@ -24,7 +24,7 @@ class Siswa extends CI_Controller{
             }elseif($this->session->userdata('as') == "PEGAWAI"){
                 $menu['class']="siswa";
                 $this->load->view('header',$menu);
-                $data['siswa'] = $this->M_Siswa->siswa_list()->result();
+                $data['siswa'] = $this->M_pkl->getQuery("SELECT s.*, d.DUDI_NAMA, d.DUDI_PIMPINAN, d.DUDI_ALAMAT, d.DUDI_TELEPON, d.DUDI_EMAIL FROM prk_siswa s LEFT JOIN prk_dudi d ON s.DUDI_ID=d.DUDI_ID")->result();
                 $this->load->view('siswa_list',$data);
                 $this->load->view('footer'); 
             }else{
