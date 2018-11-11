@@ -1,8 +1,7 @@
 <div class="content">
             <div class="container-fluid">
-                    
-                        <H4>Selamat Datang </H4>
-                        <p>Sistem Informasi PKL(SIM PKL) SMK Negeri 6 Jember berfungsi untuk Mengelola Penilaian dan Monitoring kegiatan Prakerin.</p>
+                        <h4>Selamat Datang </h4>
+                        <p>Sistem Informasi PKL (SIM PKL) SMK Negeri 6 Jember digunakan untuk Mengelola Penilaian dan Monitoring kegiatan Praktik Kerja Lapang (PKL) Siswa.</p>
                     
                 <hr>
                 <div class="row">
@@ -20,7 +19,7 @@
                                     <tbody>
                                         <tr class="danger"><td>Rekayasa Perangkat Lunak</td><td></td></tr>
                                         <tr><td>Multimedia</td><td></td></tr>
-                                        <tr class="success"><td>Akutansi Keuaga Lembaga</td><td></td></tr>
+                                        <tr class="success"><td>Akutansi Keuangan Lembaga</td><td></td></tr>
                                         <tr class="info"><td>Otomatisasi Tata Kelola Perkatoran</td><td></td></tr>
                                         <tr class="warning"><td>Bisnis Daring dan Pemasaran</td><td></td></tr>
                                     </tbody>
@@ -46,11 +45,11 @@
                     <div class="col-md-6">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">Jumlah DU/DI PKL 2017/2018</h4>
+                                <h4 class="title">Jumlah DU/DI PKL 2018/2019</h4>
                             </div>
                             <div class="content">
                                 <div class="row">
-                                <div class="col-sm-4"><i class="fa fa-5x fa-briefcase"></i></div><div class="col-sm-6"><h3><b>6 DU/DI</b></h3></div>
+                                <div class="col-sm-4"><i class="fa fa-5x fa-briefcase"></i></div><div class="col-sm-6"><h3><b>53 DU/DI</b></h3></div>
                                 </div>
                                 <div class="footer">
                                     <div class="legend" style="text-align:right;">

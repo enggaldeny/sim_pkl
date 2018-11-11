@@ -40,7 +40,9 @@
 </body>
 
     <!--   Core JS Files   -->
-    <script src="<?php echo base_url()?>assets/js/jquery-1.10.2.js" type="text/javascript"></script>
+    <script src="<?php echo base_url()?>assets/js/jquery-1.10.2.js" type="text/javascript">
+    
+    </script>
     <script src="<?php echo base_url()?>assets/js/jquery.dataTables.min.js"></script> 
 	<script src="<?php echo base_url()?>assets/js/bootstrap.min.js" type="text/javascript"></script>
     <script src="<?php echo base_url()?>assets/js/dataTables.bootstrap.js"></script>
@@ -83,7 +85,14 @@
         
         
     });
-        
+    
+    $("#cekTambah").click(function() {
+        if ($(this).is(":checked")) {
+            $("#tbhSw").show();
+        } else {
+            $("#tbhSw").hide();
+        }
+    });        
     });
 </script>
     <style type="text/css">
