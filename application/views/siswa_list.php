@@ -1,5 +1,16 @@
         <div class="content">
             <div class="container-fluid">
+                    <?php 
+	if (isset($_SESSION['alert_sales_type'])) { ?>
+    <div class="alert alert-<?php echo $_SESSION['alert_sales_type'];?>">
+                    <button type="button" aria-hidden="true" class="close"></button>
+                    <span><?php echo $_SESSION['alert_sales_msg'];?></span>
+                </div>
+	<?php }
+	unset($_SESSION['alert_sales_type']);
+	unset($_SESSION['alert_sales_show']);
+	unset($_SESSION['alert_sales_msg']);
+	 ?>
                 <div class="row">                        
                     <div class="col-md-12">
                         <div class="card">
@@ -25,6 +36,7 @@
                                     	<th>JK</th>
                                         
                                         <th>HP Pribadi / Ortu</th>
+                                        <th>DUDI</th>
                                         <th>Opsi</th>
                                     </thead>
                                     <tbody>
@@ -58,10 +70,10 @@
                                         	<td><?php echo $s->SW_JK;?></td>                                           
                                             <td><?php echo $s->SW_HP;?> / <?php echo $s->SW_HP_ORTU;?></td>
                                            <!-- <td><?php //echo $s->DUDI_NAMA;?></td>-->
-                                            <td><?php echo $ket ?>  
-                                                </td>
+                                            <td><?php echo $ket ?></td>
                                             <td>
-                                                <a href="<?php echo base_url()?>index.php/Siswa/Siswa_ed/<?php echo $s->SW_NIS;?>" class="btn btn-xs btn-info"> Edit</a>
+                                                <a href="<?php echo base_url()?>index.php/Siswa/Siswa_ed/<?php echo $s->SW_NIS;?>" class="btn btn-xs btn-info"> Edit</a>&nbsp;&nbsp;
+                                                <a href="#" data-toggle="modal" data-target="#siswaDel" class="tbl-delSw" si="<?php echo $s->SW_NIS;?>"><button class="btn btn-xs btn-danger"> Hapus</button></a>
                                             </td>
                                         </tr>
                                         <?php } ?>
@@ -152,4 +164,29 @@
 
   </div>
 </div>
+<div id="siswaDel" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Siswa PKL</h4>
+      </div>
+      <form action="<?php echo base_url()?>index.php/Siswa/siswa_del" method="post">
+      <div class="modal-body">
+          <input type="hidden" name="si" id="del_si">
+          Apakah Anda yakin meNONAKTIFKAN data ini ?        
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-danger" >Nonaktifkan</button>
+          <button type="button" class="btn btn-success" data-dismiss="modal">Tutup</button>
+      </div>
+        </form>
+    </div>
+
+  </div>
+</div>
+
+
 

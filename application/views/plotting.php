@@ -15,8 +15,8 @@
                         <div class="card">
                             <div class="header">
                                 <div class="col-md-6">
-                                <h4 class="title">Daftar DU/DI Periode 2017/2018 </h4>
-                                </div><br><br>
+                                <h4 class="title">Daftar DU/DI Periode 2018/2019  </h4><a href="<?php echo base_url()?>index.php/Cetakplotting" target="_blank" class="btn btn-success">Cetak Hasil Plotting</a>
+                                </div> <br><br>
                             </div>
                             <br><br>
                             <div class="content table-responsive table-full-width">

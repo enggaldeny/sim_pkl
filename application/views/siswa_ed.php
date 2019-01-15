@@ -17,7 +17,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>NIS</label>
-                                                <input type="text" class="form-control" READONLY name="si" value="<?php echo $s->SW_NIS ?>">
+                                                <input type="text" onkeypress="return hanyaAngka(event)" maxlength="20" class="form-control" READONLY name="si" value="<?php echo $s->SW_NIS ?>">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
@@ -31,7 +31,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Nama </label>
-                                                <input type="text" name="sn" value="<?php echo $s->SW_NAMA ?>" class="form-control">
+                                                <input type="text" name="sn" onkeypress="return huruf(event)" value="<?php echo $s->SW_NAMA ?>" class="form-control">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
@@ -50,14 +50,14 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>HP Pribadi</label>
-                                                <input type="text" class="form-control" name="sh" value="<?php echo $s->SW_HP ?>"placeholder="Judul Berita">
+                                                <input type="text" class="form-control" name="sh" onkeypress="return hanyaAngka(event)" maxlength="12" value="<?php echo $s->SW_HP ?>"placeholder="Judul Berita">
                                              
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>HP Ortu</label>
-                                                <input type="number" class="form-control" name="so" value="<?php echo $s->SW_HP_ORTU ?>" placeholder="HP Orang Tua Siswa">
+                                                <input type="number" class="form-control" onkeypress="return hanyaAngka(event)" maxlength="12" name="so" value="<?php echo $s->SW_HP_ORTU ?>" placeholder="HP Orang Tua Siswa">
                                             </div>
                                         </div>
                                     </div>

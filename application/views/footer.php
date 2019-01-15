@@ -67,6 +67,10 @@
     <script src="<?php echo base_url()?>assets/js/jquery.flexdatalist.min.js"></script>
 <script>
     $( document ).ready(function() {
+        $(function(){
+	$('#tabel_data').DataTable();
+    $('#tabel_data2').DataTable();
+});
         demo.initChartist();
     $(".tbl-detail").click(function(event){
         //alert ("Haii");
@@ -100,32 +104,89 @@
         #gbrSw {width: 50px; margin:auto;}
     </style>
 <script>    
-
-$(function(){
-	$('#tabel_data').DataTable();
-    $('#tabel_data2').DataTable();
-});
     $(function(){
-$(".tbl-delDudi").click(function(event){
-       // alert ("Haii");
+        $(".tbl-delDudi").click(function(event){
+        //alert ("Haii");
         $("#del_di").val($(this).attr("di"));
     });
     });
+    
+     $(function(){
+         $(".tbl-delPrm").click(function(event){
+        //alert ("Haii");
+        $("#del_pr").val($(this).attr("pr"));
+    });
+    });
+    
+     $(function(){
+    $(".tbl-DelDetPrm").click(function(event){
+       // alert ("Haii");
+        $("#del_dpr").val($(this).attr("dpr"));
+    });
+    });
+    
+    $(function(){
+    $(".tbl-edJur").click(function(event){
+        $("#ed_ji1").val($(this).attr("ji"));
+        $("#ed_ji2").val($(this).attr("ji"));
+        $("#ed_jn").val($(this).attr("jn"));
+    });
+    });
+    
+    $(function(){
+    $(".tbl-edJurkel").click(function(event){
+        $("#ed_kl").val($(this).attr("jk"));
+         $("#ed_jk1").val($(this).attr("jk1"));
+        $("#ed_jur").val($(this).attr("ji"));
+    });
+    });
+    
+    $(function(){
+    $(".tbl-delJur").click(function(event){
+        //alert("haii");
+        $("#del_ji").val($(this).attr("ji"));
+    });
+    });
+    
+    $(function(){
+    $(".tbl-Deljurkel").click(function(event){
+        //alert("haii");
+        $("#del_jk").val($(this).attr("jk"));
+    });
+    });
+    
    $(function(){  
-$(".tbl-edPgw").click(function(event){
+       $(".tbl-edPgw").click(function(event){
        // alert ("Haii");
         $("#pi_ed").val($(this).attr("pi"));
-    $("#pnip_ed").val($(this).attr("pnip"));
+        $("#pnip_ed").val($(this).attr("pnip"));
         $("#pn_ed").val($(this).attr("pn"));
         $("#ph_ed").val($(this).attr("ph"));
         $("#pa_ed").val($(this).attr("pa"));
+    if($(this).attr("pl")==1){
+       //$("#ceklvl").is(":checked");
+       $("#ceklvl").attr('checked', true);
+         $("#akun").show();
+        $("#pu_ed").val($(this).attr("pu"));
+        //alert ("Haii");
+    }else{
+        $("#ceklvl").attr('checked', false);
+         $("#akun").hide();
+        $("#pu_ed").val($(this).attr(""));
+    }
     });
-    });
+});
     
     $(function(){
         $(".tbl-delPgw").click(function(event){
         $("#del_pi").val($(this).attr("pi"));
     });
+    });
+    
+     $(function(){
+        $(".tbl-delSw").click(function(event){
+        $("#del_si").val($(this).attr("si"));
+        });
     });
     
     $(function(){
@@ -137,32 +198,30 @@ $(".tbl-edPgw").click(function(event){
             document.getElementById("sd_jk").innerHTML =$(this).attr("sjk");
             document.getElementById("sd_hp").innerHTML =$(this).attr("shp");
             document.getElementById("sd_hpo").innerHTML =$(this).attr("shpo");
-	   var myImage = new Image(100, 100);
-	   myImage.src = '<?php echo base_url()?>assets/img/default-avatar.png';
-	   x = document.getElementById("gbrSw");
-	   x.appendChild(myImage);
-    });
+           var myImage = new Image(100, 100);
+           myImage.src = '<?php echo base_url()?>assets/img/default-avatar.png';
+           x = document.getElementById("gbrSw");
+           x.appendChild(myImage);
+        });
     });
     
      $(function(){
         $(".tbl-detGr").click(function(event){
-        document.getElementById("gd_nip").innerHTML =$(this).attr("gnip");
-        document.getElementById("gd_nm").innerHTML =$(this).attr("gnm");
-        document.getElementById("gd_al").innerHTML =$(this).attr("gal");
-        document.getElementById("gd_hp").innerHTML =$(this).attr("ghp");
-	   var myImage = new Image(100, 100);
-	   myImage.src = '<?php echo base_url()?>assets/img/default-avatar.png';
-	   x = document.getElementById("gbrGr");
-	   x.appendChild(myImage);
-    });
+            document.getElementById("gd_nip").innerHTML =$(this).attr("gnip");
+            document.getElementById("gd_nm").innerHTML =$(this).attr("gnm");
+            document.getElementById("gd_al").innerHTML =$(this).attr("gal");
+            document.getElementById("gd_hp").innerHTML =$(this).attr("ghp");
+            var myImage = new Image(100, 100);
+            myImage.src = '<?php echo base_url()?>assets/img/default-avatar.png';
+            x = document.getElementById("gbrGr");
+            x.appendChild(myImage);
+        });
     });
     
     function delGbr(){
        $("#gbrGr").html("");
         $("#gbrSw").html("");
     }
-    
-
     
     $(function(){
         $(".tbl-edPrm").click(function(event){
@@ -190,5 +249,33 @@ $(".tbl-edPgw").click(function(event){
             }
         });
     });
+</script>
+    
+    
+<script>
+    function hanyaAngka(evt) {
+      var charCode = (evt.which) ? evt.which : event.keyCode
+       if (charCode > 31 && (charCode < 48 || charCode > 57))
+
+        return false;
+      return true;
+    }
+    
+    function huruf(evt){
+        var charCode = (evt.which) ? evt.which : event.keyCode
+        if ((charCode < 65 || charCode > 90)&&(charCode < 97 || charCode > 122)&&charCode>32)
+            return false;
+        return true;
+    }
+   function cekEmail() {
+        var email = document.getElementById('email');
+        var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+        if (!filter.test(email.value)) {
+        alert('Mohon Isi Alamat Email Dengan Benar');
+        email.focus;
+        return false;
+        }
+   }
 </script>
 </html>

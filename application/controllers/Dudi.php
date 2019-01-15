@@ -71,6 +71,7 @@ class Dudi extends CI_Controller{
         $dn=$this->input->post('dn');
         $dp=$this->input->post('dp');
         $da=$this->input->post('da');
+        $dw=$this->input->post('dw');
         $dt=$this->input->post('dt');
         $de=$this->input->post('de');
         $du=$this->input->post('du');
@@ -79,19 +80,31 @@ class Dudi extends CI_Controller{
          $data=array(
             'DUDI_NAMA'=>$dn,
             'DUDI_PIMPINAN'=>$dp,
+            'DUDI_WILAYAH'=>$dw,
             'DUDI_ALAMAT'=>$da,
             'DUDI_TELEPON'=>$dt,
             'DUDI_EMAIL'=>$de,
             'DUDI_USERNAME'=>$du,
-            'DUDI_PASSWORD'=>$dw
+            'DUDI_PASSWORD'=>md5($dpw)
             );
-        $this->M_Dudi->insertdudi($data,'prk_dudi');
-        redirect('Dudi');
+        $add=$this->M_pkl->saveData('prk_dudi',$data);
+         if ($add > 0) {
+                    $_SESSION['alert_sales_type'] = "success";
+                    $_SESSION['alert_sales_show'] = "show";
+                    $_SESSION['alert_sales_msg'] = "Berhasil! Data DUDI telah disimpan.";
+                    redirect(base_url("index.php/Dudi"));
+                }else{
+                    $_SESSION['alert_sales_type'] = "danger";
+                    $_SESSION['alert_sales_show'] = "show";
+                    $_SESSION['alert_sales_msg'] = "Kesalahan! Data DUDI Gagal disimpan.";
+                    redirect(base_url("index.php/Dudi"));
+                }
     }
     public function upd_dudi(){
         $di=$this->input->post('di');
         $dn=$this->input->post('dn');
-        $dp=$this->input->post('dp');
+        $dp=$this->input->post('dp');        
+        $dw=$this->input->post('dw');
         $da=$this->input->post('da');
         $dt=$this->input->post('dt');
         $de=$this->input->post('de');
@@ -103,6 +116,7 @@ class Dudi extends CI_Controller{
              $data=array(
             'DUDI_NAMA'=>$dn,
             'DUDI_PIMPINAN'=>$dp,
+            'DUDI_WILAYAH'=>$dw,
             'DUDI_ALAMAT'=>$da,
             'DUDI_TELEPON'=>$dt,
             'DUDI_EMAIL'=>$de,
@@ -134,6 +148,7 @@ class Dudi extends CI_Controller{
             $data=array(
             'DUDI_NAMA'=>$dn,
             'DUDI_PIMPINAN'=>$dp,
+            'DUDI_WILAYAH'=>$dw,
             'DUDI_ALAMAT'=>$da,
             'DUDI_TELEPON'=>$dt,
             'DUDI_EMAIL'=>$de
@@ -157,10 +172,22 @@ class Dudi extends CI_Controller{
        
     }
     public function del_dudi(){
-         $di=$this->input->post('di');
-         $where=array('DUDI_ID'=>$di);
-        $this->M_pkl->deleteData('prk_dudi',$where);
-        redirect('Dudi');
+        $di=$this->input->post('di');
+        $where=array('DUDI_ID'=>$di);
+        $cek_dudi=$this->M_pkl->getQuery("select DUDI_ID from prk_siswa where DUDI_ID='$di'");
+         if($cek_dudi->num_rows() >0){
+            $_SESSION['alert_sales_type'] = "danger";
+            $_SESSION['alert_sales_show'] = "show";
+            $_SESSION['alert_sales_msg'] = "Data DUDI masih dipakai, harap kosongkan terlebih dahulu plotting siswa di DUDI Terkait .";
+            redirect(base_url("index.php/Dudi"));
+         }else{
+            $del = $this->M_pkl->deleteData('prk_dudi',$where);
+            $_SESSION['alert_sales_type'] = "success";
+            $_SESSION['alert_sales_show'] = "show";
+            $_SESSION['alert_sales_msg'] = "Berhasil! Data DUDI telah Dihapus.";
+            redirect(base_url("index.php/Dudi"));
+         }
+
     }
 }
 ?>

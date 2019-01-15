@@ -14,13 +14,13 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>NIS</label>
-                                                <input type="text" class="form-control" name="si" value="">
+                                                <input type="text" required class="form-control" onkeypress="return hanyaAngka(event)" maxlength="20" name="si" value="">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>KELAS</label>
-                                                <select name="sk" class="form-control">
+                                                <select name="sk" required class="form-control">
                                                     <?php
                                                     foreach($kelas as $k){
                                                         ?>
@@ -36,14 +36,14 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Nama </label>
-                                                <input type="text" name="sn" class="form-control">
+                                                <input type="text" required name="sn" onkeypress="return huruf(event)" class="form-control">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Jenis Kelamin</label>
                                                 
-                                                <select name="sj" class="form-control">
+                                                <select name="sj" required class="form-control">
                                                     <option value="L"> LAKI - LAKI </option>
                                                     <option value="P"> PEREMPUAN </option>
                                                 </select>
@@ -55,14 +55,14 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>HP Pribadi</label>
-                                                <input type="text" class="form-control" name="sh">
+                                                <input type="text" required class="form-control" onkeypress="return hanyaAngka(event)" maxlength="12" name="sh">
                                              
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>HP Ortu</label>
-                                                <input type="text" class="form-control" name="so" placeholder="HP Orang Tua Siswa">
+                                                <input type="text" required class="form-control" onkeypress="return hanyaAngka(event)" maxlength="12" name="so" placeholder="HP Orang Tua Siswa">
                                             </div>
                                         </div>
                                     </div>
@@ -71,7 +71,7 @@
                                         <div class="col-md-8">
                                             <div class="form-group">
                                                 <label>Alamat</label>
-                                                <textarea id="ckeditor_full" name="sa" class="form-control"></textarea>
+                                                <textarea id="ckeditor_full" required name="sa" class="form-control"></textarea>
                                                 
                                             </div>
                                         </div>

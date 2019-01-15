@@ -33,6 +33,7 @@
     <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/awesome/awesomplete.css" />
     <link href="<?php echo base_url();?>assets/css/jquery.flexdatalist.min.css" rel="stylesheet" type="text/css">
 
+    <script type="text/javascript" src="<?php echo base_url();?>assets/js/chart.js"></script>
 </head>
 <body>
 
@@ -71,6 +72,12 @@
                         <p>Parameter Nilai</p>
                     </a>
                 </li>
+                <li class="<?php if ($class=='jurusan'){ echo 'active';}else{echo '';};?>">
+                    <a href="<?php echo base_url()?>index.php/Jurusan">
+                        <i class="pe-7s-culture"></i>
+                        <p>Jurusan</p>
+                    </a>
+                </li>
                 <li class="<?php if ($class=='siswa'){ echo 'active';}else{echo '';};?>">
                     <a href="<?php echo base_url()?>index.php/Siswa">
                         <i class="pe-7s-users"></i>
@@ -83,12 +90,13 @@
                         <p>PLOTTING</p>
                     </a>
                 </li>
-                <!--<li class="<?php //if ($class=='laporan'){ echo 'active';}else{echo '';};?>">
+                <li class="<?php if ($class=='laporan'){ echo 'active';}else{echo '';};?>">
                     <a href="<?php echo base_url()?>index.php/Laporan">
                         <i class="pe-7s-note2"></i>
                         <p>Laporan</p>
                     </a>
-                </li>-->
+                </li>
+                
                 <li class="<?php if ($class=='setting'){ echo 'active';}else{echo '';};?>">
                     <a href="<?php echo base_url()?>index.php/Setting">
                         <i class="pe-7s-key"></i>

@@ -26,13 +26,13 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Nama Pegawai</label>
-                                                <input type="text" class="form-control" required name="nm" value="<?php echo $this->session->userdata('pn');?>">
+                                                <input type="text" class="form-control" required name="nm" onkeypress="return huruf(event)" value="<?php echo $this->session->userdata('pn');?>">
                                             </div>
                                         </div>                                        
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Telepon</label>
-                                               <input type="text" class="form-control" required name="hp" id="hp_ed"  value="<?php echo $this->session->userdata('pt');?>">
+                                               <input type="text" class="form-control" required name="hp" id="hp_ed" onkeypress="return hanyaAngka(event)" maxlength="12" value="<?php echo $this->session->userdata('pt');?>">
                                              
                                             </div>
                                         </div>

@@ -56,7 +56,7 @@
                                     </div><hr>
                                     <div class="col-12">
                                     <label>Daftar Siswa PKL</label>
-                                    <input type='text' placeholder='Nama Siswa'required class='flexdatalist form-control' id="flex_sw" data-min-length='1'       multiple='multiple' list='siswa' name='sw'>
+                                    <input type='text' placeholder='Nama Siswa' required class='flexdatalist form-control' id="flex_sw" data-min-length='1'       multiple='multiple' list='siswa' name='sw'>
                                     <datalist id="siswa">
                                         <?php foreach($sw as $sw){?>
                                         <option value="<?php echo $sw->SW_NIS ?>"><?php echo $sw->SW_NAMA ?> (<?php echo $sw->SW_NIS ?>-<?php echo $sw->JURKEL_ID ?>)</option>

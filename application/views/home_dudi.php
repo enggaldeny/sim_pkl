@@ -35,7 +35,7 @@
                                     </div>
                                     <hr>
                                     <div class="stats">
-                                        <i class="fa fa-cube"></i> Data Pokja PKL SMK N 6 Jember | <a href="<?php echo base_url()?>index.php/Siswa">Lihat Data <i class="fa fa-eye"></i></a>
+                                        <i class="fa fa-cube"></i> Data Pokja PKL SMK N 6 Jember
                                     </div>
                                 </div>
                             </div>
@@ -60,7 +60,7 @@
                                     </div>
                                     <hr>
                                     <div class="stats">
-                                        <i class="fa fa-cube"></i> Data Pokja PKL SMK N 6 Jember | <a href="<?php echo base_url()?>index.php/Dudi">Lihat Data <i class="fa fa-eye"></i></a>
+                                        <i class="fa fa-cube"></i> Data Pokja PKL SMK N 6 Jember
                                     </div>
                                 </div>
                             </div>

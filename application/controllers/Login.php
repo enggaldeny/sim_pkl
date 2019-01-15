@@ -22,7 +22,10 @@ class Login extends CI_Controller{
         if($cek_user->num_rows() == 1){
             $data=$cek_user->row_array();
             $this->session->set_userdata('masuk',TRUE);
-            $this->session->set_userdata('me',$data['PGW_NAMA']);
+            $this->session->set_userdata('pn',$data['PGW_NAMA']);
+            $this->session->set_userdata('pt',$data['PGW_TELEPON']);
+            $this->session->set_userdata('pa',$data['PGW_ALAMAT']);
+            $this->session->set_userdata('pu',$data['PGW_USERNAME']);
             $this->session->set_userdata('as','PEGAWAI');
             $this->session->set_userdata('pv',$data['PGW_ID']);
             redirect(base_url("index.php/Home"));    
@@ -48,7 +51,8 @@ class Login extends CI_Controller{
         if($cek_user->num_rows() == 1){
             $data=$cek_user->row_array();
             $this->session->set_userdata('masuk',TRUE);
-            $this->session->set_userdata('me_dudi',$data['DUDI_NAMA']);
+            $this->session->set_userdata('dn',$data['DUDI_NAMA']);
+            $this->session->set_userdata('du',$data['DUDI_USERNAME']);
             $this->session->set_userdata('as','DUDI');
             $this->session->set_userdata('pv',$data['DUDI_ID']);
             redirect(base_url("index.php/Home"));    
@@ -61,6 +65,9 @@ class Login extends CI_Controller{
             $this->index();
         }
     }
+    
+    /**/
+    
     function Logout(){
         $this->session->sess_destroy();
         redirect(base_url('index.php/Login/MainPage'));

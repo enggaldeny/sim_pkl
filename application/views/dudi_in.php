@@ -15,13 +15,13 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Nama DU/DI</label>
-                                                <input type="text" name="dn" class="form-control">
+                                                <input type="text" required name="dn" class="form-control">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Nama Penanggung Jawab</label>
-                                                <input type="text" name="dp" class="form-control">
+                                                <input type="text" required name="dp" onkeypress="return huruf(event)" class="form-control">
                                             </div>
                                         </div>
                                         
@@ -30,24 +30,46 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Telepon</label>
-                                                <input type="text" name="dt" class="form-control" placeholder="No HP Perusahaan atau Penanggung Jawab">
+                                                <input type="text" maxlength="15" onkeypress="return hanyaAngka(event)" required name="dt" class="form-control" placeholder="No HP Perusahaan atau Penanggung Jawab">
                                              
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Email</label>
-                                                <input type="text" name="de" class="form-control" placeholder="Email Perusahaan atau Penanggung Jawab">
+                                                <input type="text" required name="de" id="email" onchange="cekEmail();" class="form-control" placeholder="Email Perusahaan atau Penanggung Jawab">
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="row">
-                                        <div class="col-md-8">
+                                        <div class="col-md-5">
+                                            <div class="form-group">
+                                                <label>Wilayah</label>
+                                                <input type="text" onkeypress="return huruf(event)" required name="dw" class="form-control" placeholder="Kecamatan / Wilayah, ex : Semboro / Jember / Lumajang">
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="col-md-7">
                                             <div class="form-group">
                                                 <label>Alamat</label>
-                                                <textarea id="ckeditor_full" name="da" class="form-control"></textarea>
+                                                <textarea id="ckeditor_full" required name="da" class="form-control"></textarea>
                                                 
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Username</label>
+                                                <input type="text" class="form-control" required name="du" placeholder="Username">
+                                             
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Password</label>
+                                                <input type="password" class="form-control" required name="dpw" placeholder="Password">
                                             </div>
                                         </div>
                                     </div>
@@ -79,3 +101,4 @@
 
     </div>
 </div>
+

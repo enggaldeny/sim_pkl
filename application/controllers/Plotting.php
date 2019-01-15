@@ -41,7 +41,7 @@ class Plotting extends CI_Controller{
                 $where = $id;
                 $data['dudi'] = $this->M_Dudi->dudi_ed($where)->result();
                 $data['gr'] = $this->M_pkl->getQuery('select * from PRK_PEGAWAI')->result();
-                $data['sw'] = $this->M_pkl->getQuery('select * from PRK_SISWA WHERE DUDI_ID=0')->result();
+                $data['sw'] = $this->M_pkl->getQuery('select * from PRK_SISWA WHERE DUDI_ID IS NULL')->result();
                 $this->load->view('plot_siswa',$data);
                 $this->load->view('footer');  
             }else{
@@ -104,7 +104,7 @@ class Plotting extends CI_Controller{
                 $where = $id;
                 $data['dudi'] = $this->M_Dudi->dudi_ed($where)->result();
                 $data['gr'] = $this->M_pkl->getQuery('select * from PRK_PEGAWAI')->result();
-                $data['sw'] = $this->M_pkl->getQuery('select * from PRK_SISWA WHERE DUDI_ID=0')->result();
+                $data['sw'] = $this->M_pkl->getQuery('select * from PRK_SISWA WHERE DUDI_ID IS NULL')->result();
                 $data['swd'] = $this->M_pkl->getQuery("select * from PRK_SISWA WHERE DUDI_ID=$id")->result();
                 $this->load->view('plot_siswa_ed',$data);
                 $this->load->view('footer');  
@@ -142,7 +142,7 @@ class Plotting extends CI_Controller{
                     if($this->input->post('hps'.$i)!='NULL'){
                         //echo $this->input->post('hps'.$i);
                         $data=array(
-                            'DUDI_ID'=>0
+                            'DUDI_ID'=>NULL
                         );
                  $where=array('SW_NIS'=>$this->input->post('hps'.$i));
                 $this->M_pkl->updateData('prk_siswa',$data,$where);

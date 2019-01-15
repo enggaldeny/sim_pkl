@@ -9,6 +9,7 @@
                                     </a></h4>
                             </div>
                             <div class="content">
+                                <form action="<?php echo base_url()?>index.php/Plotting/upd_plot_siswa" method="post">
                                     <?php
                                         $no = 1;
                                         foreach($dudi as $d);
@@ -40,7 +41,7 @@
                                                 <p><?php echo $d->DUDI_ALAMAT ?></p>
                                         </div>
                                     </div>
-                                <form action="<?php echo base_url()?>index.php/Plotting/upd_plot_siswa" method="post">
+                                
                                     <input type="hidden" name="di" value="<?php echo $d->DUDI_ID ?>">
                                     <hr>
                                     <h4>Tambahkan Siswa dan Guru Pendamping</h4>
@@ -72,8 +73,7 @@
                                             <input type="hidden" name="count" value="<?php echo $i; ?>">
                                         </table>
                                             </div>
-                                        <div class="col-sm-4">
-                                            
+                                        <div class="col-sm-4">                                            
                                             <label>Tambah Siswa PKL ?</label> <input type="checkbox" name="cektbhSw" value="" id="cekTambah"> 
                                             <div id="tbhSw" style="display: none">
                                             <input type='text' placeholder='Nama Siswa'required class='flexdatalist form-control' id="flex_sw" data-min-length='1'  multiple='multiple' list='siswa' name='sw'>

@@ -89,36 +89,36 @@
                                 <img class="img-responsive center-block" src="<?php echo base_url()?>form/img/ak.png" alt="step1">
                                 <div class="item-content">
                                     <h3>Akuntansi Keuangan Lembaga</h3>
-                                    <p>Consectetur adipiscing elit</p>
-                                    <p>Phasellus orci dolor</p>
-                                    <p>dapibus suscipit quam</p>
+                                    <p>Be The Best With Competence</p>
+                                    <p>Jl. PB.Sudirman, Tanggul Kulon, Tanggul</p>
+                                    <p>Kabupaten Jember, Jawa Timur 68155, Indonesia</p>
                                 </div>
                             </div>
                              <div class="item">
                                 <img class="img-responsive center-block" src="<?php echo base_url()?>form/img/pm.jpg" alt="step1">
                                 <div class="item-content">
                                     <h3>Bisnis Daring dan Pemasaran</h3>
-                                    <p>Consectetur adipiscing elit</p>
-                                    <p>Phasellus orci dolor</p>
-                                    <p>dapibus suscipit quam</p>
+                                    <p>Be The Best With Competence</p>
+                                    <p>Jl. PB.Sudirman, Tanggul Kulon, Tanggul</p>
+                                    <p>Kabupaten Jember, Jawa Timur 68155, Indonesia</p>
                                 </div>
                             </div>
                             <div class="item">
                                 <img class="img-responsive center-block" src="<?php echo base_url()?>form/img/rpl.jpg" alt="step2">
                                 <div class="item-content">
                                     <h3>Rekayasa Perangkat Lunak</h3>
-                                    <p>Laoreet placerat justo congue vulputate</p>
-                                    <p>Diam felis dapibus nulla</p>
-                                    <p>Phasellus molestie</p>
+                                    <p>Be The Best With Competence</p>
+                                    <p>Jl. PB.Sudirman, Tanggul Kulon, Tanggul</p>
+                                    <p>Kabupaten Jember, Jawa Timur 68155, Indonesia</p>
                                 </div>
                             </div>
                             <div class="item">
                                 <img class="img-responsive center-block" src="<?php echo base_url()?>form/img/mm.jpg" alt="step3">
                                 <div class="item-content">
                                     <h3> Multimedia</h3>
-                                    <p>ultricies posuere leo</p>
-                                    <p>Phasellus orci dolor</p>
-                                    <p>dapibus suscipit quam</p>
+                                    <p>Be The Best With Competence</p>
+                                    <p>Jl. PB.Sudirman, Tanggul Kulon, Tanggul</p>
+                                    <p>Kabupaten Jember, Jawa Timur 68155, Indonesia</p>
                                 </div>
                             </div>
                         </div>
@@ -163,16 +163,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-lg-10 col-lg-offset-1 col-lg-offset-right-1 col-md-10 col-md-offset-1 col-md-offset-right-1 col-sm-12 col-xs-12 pull-right ">
-                                    <div class="row">
-                                        <br>
-                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">   
-                                        </div>
-                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style=" text-align:right;">
-                                            <a href="#">Reset Password</a>
-                                        </div>
-                                    </div>
-                                </div>
+                                
 
                                 <div class="col-lg-10 col-lg-offset-1 col-lg-offset-right-1 col-md-10 col-md-offset-1 col-md-offset-right-1 col-sm-12 col-xs-12 pull-right ">
                                     <button class="btn lt-register-btn" type="submit">login <i class="icon-right "></i></button>
@@ -198,16 +189,6 @@
                                     </div>
                                 </div>
 
-                                <div class="col-lg-10 col-lg-offset-1 col-lg-offset-right-1 col-md-10 col-md-offset-1 col-md-offset-right-1 col-sm-12 col-xs-12 pull-right ">
-                                    <div class="row">
-                                        <br>
-                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">   
-                                        </div>
-                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style=" text-align:right;">
-                                            <a href="#">Reset Password</a>
-                                        </div>
-                                    </div>
-                                </div>
 
                                 <div class="col-lg-10 col-lg-offset-1 col-lg-offset-right-1 col-md-10 col-md-offset-1 col-md-offset-right-1 col-sm-12 col-xs-12 pull-right ">
                                     <button class="btn lt-register-btn" type="submit">login <i class="icon-right "></i></button>

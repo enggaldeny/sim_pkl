@@ -94,8 +94,19 @@ class Siswa extends CI_Controller{
             'SW_HP_ORTU'=>$so            
             );
         $where=array('SW_NIS'=>$si);
-        $this->M_Siswa->updatesiswa($where,$data,'prk_siswa');
-        redirect('Siswa');
+        $update=$this->M_pkl->updateData('prk_siswa', $data, $where);
+         if ($update) {
+            $_SESSION['alert_sales_type'] = "success";
+            $_SESSION['alert_sales_show'] = "show";
+            $_SESSION['alert_sales_msg'] = "Berhasil! Data Siswa telah Diperbarui.";
+            redirect(base_url("index.php/Siswa"));
+        }else{
+            $_SESSION['alert_sales_type'] = "danger";
+            $_SESSION['alert_sales_show'] = "show";
+            $_SESSION['alert_sales_msg'] = "Kesalahan! Data Siswa gagal Disimpan. Mohon Cek Kembali isian Anda";
+            redirect(base_url("index.php/Siswa"));
+        }
+        //redirect('Siswa');
     }
     
     public function add_siswa(){
@@ -116,8 +127,35 @@ class Siswa extends CI_Controller{
             'SW_HP_ORTU'=>$so,
             'JURKEL_ID'=>$sk
             );
-        $this->M_pkl->saveData('prk_siswa',$data);
-        redirect('Siswa');
+        $add = $this->M_pkl->saveData('prk_siswa',$data);
+         //if ($add > 0) {
+            $_SESSION['alert_sales_type'] = "success";
+            $_SESSION['alert_sales_show'] = "show";
+            $_SESSION['alert_sales_msg'] = "Berhasil! Data Siswa telah Disimpan.";
+            redirect(base_url("index.php/Siswa"));
+       //}else{
+            //$_SESSION['alert_sales_type'] = "danger";
+            //$_SESSION['alert_sales_show'] = "show";
+            //$_SESSION['alert_sales_msg'] = "Kesalahan! Data Siswa gagal Disimpan. Mohon Cek Kembali isian Anda";
+            //redirect(base_url("index.php/Siswa"));
+        //}
+       // redirect('Siswa');
+    }
+    public function siswa_del(){
+         $si=$this->input->post('si');
+         $where=array('SW_NIS'=>$si);
+        $del = $this->M_pkl->deleteData('prk_siswa',$where);
+        if ($del > 0) {
+            $_SESSION['alert_sales_type'] = "success";
+            $_SESSION['alert_sales_show'] = "show";
+            $_SESSION['alert_sales_msg'] = "Berhasil! Data Siswa telah Dihapus.";
+            redirect(base_url("index.php/Siswa"));
+        }else{
+            $_SESSION['alert_sales_type'] = "danger";
+            $_SESSION['alert_sales_show'] = "show";
+            $_SESSION['alert_sales_msg'] = "Data Siswa Gagal Dihapus.";
+            redirect(base_url("index.php/Siswa"));
+        }
     }
 }
 ?>

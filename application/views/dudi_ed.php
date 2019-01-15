@@ -31,7 +31,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Nama Penanggung Jawab</label>
-                                                <input type="text" name="dp" value="<?php echo $d->DUDI_PIMPINAN ?>" class="form-control">
+                                                <input type="text" name="dp" onkeypress="return huruf(event)" value="<?php echo $d->DUDI_PIMPINAN ?>" class="form-control">
                                             </div>
                                         </div>
                                         
@@ -40,26 +40,34 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Telepon Kantor / Penanggung Jawab</label>
-                                                <input type="text" class="form-control" name="dt" value="<?php echo $d->DUDI_TELEPON ?>"placeholder="Judul Berita">
+                                                <input type="text" maxlength="15" onkeypress="return hanyaAngka(event)" class="form-control" name="dt" value="<?php echo $d->DUDI_TELEPON ?>"placeholder="Judul Berita">
                                              
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Email Kantor / Penanggung Jawab</label>
-                                                <input type="text" class="form-control" name="de" value="<?php echo $d->DUDI_EMAIL ?>" placeholder="Judul Berita">
+                                                <input type="text" class="form-control" name="de" id="email" onchange="cekEmail();" value="<?php echo $d->DUDI_EMAIL ?>" placeholder="Judul Berita">
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="row">
-                                        <div class="col-md-8">
+                                        <div class="col-md-5">
+                                            <div class="form-group">
+                                                <label>Wilayah</label>
+                                                <input type="text" name="dw" class="form-control" value="<?php echo $d->DUDI_WILAYAH?>">
+                                                
+                                            </div>
+                                            </div>
+                                        <div class="col-md-7">
                                             <div class="form-group">
                                                 <label>Alamat Kantor</label>
                                                 <textarea id="ckeditor_full" name="da"  class="form-control"><?php echo $d->DUDI_ALAMAT ?></textarea>
                                                 
                                             </div>
                                         </div>
+                                    
                                     </div>
                                     <div class="row">
                                         <div class="col-md-6">

@@ -1,11 +1,22 @@
         <div class="content">
             <div class="container-fluid">
+                <?php 
+	if (isset($_SESSION['alert_sales_type'])) { ?>
+    <div class="alert alert-<?php echo $_SESSION['alert_sales_type'];?>">
+                    <button type="button" aria-hidden="true" class="close">×</button>
+                    <span><?php echo $_SESSION['alert_sales_msg'];?></span>
+                </div>
+	<?php }
+	unset($_SESSION['alert_sales_type']);
+	unset($_SESSION['alert_sales_show']);
+	unset($_SESSION['alert_sales_msg']);
+	 ?>
                 <div class="row">                        
                     <div class="col-md-12">
                         <div class="card">
                             <div class="header">
                                 <div class="col-md-6">
-                                <h4 class="title">Daftar Guru Pendamping PKL Periode 2017/2018 </h4>
+                                <h4 class="title">Daftar Guru Pendamping PKL Periode 2018/2019 </h4>
                                 </div><br><br>
                                 <div class="row"></div>
                                 <div class="col-md-4">
@@ -49,6 +60,9 @@
                                                    pn="<?php echo $pd->PGW_NAMA;?>"
                                                    ph="<?php echo $pd->PGW_TELEPON;?>"
                                                    pa="<?php echo $pd->PGW_ALAMAT;?>"
+                                                   pl="<?php echo $pd->PGW_LEVEL;?>"
+                                                    pu="<?php echo $pd->PGW_USERNAME;?>"
+                                                   
                                                    class="tbl-edPgw"> <button class="btn btn-xs btn-info"> Edit</button></a>
                                                 &nbsp;&nbsp;
                                                 <a href="#" data-toggle="modal" data-target="#pendampingDel" class="tbl-delPgw" pi="<?php echo $pd->PGW_ID;?>">
@@ -100,34 +114,34 @@
               <input type="hidden" class="form-control" required id="pi_ed" name="pi" >
             <tbody>
                 <tr>
-                    <th>NIP</th><td>:</td><td><input type="text" class="form-control" required id="pnip_ed" name="pnip" ></td>
+                    <th>NIP</th><td>:</td><td><input type="text" onkeypress="return hanyaAngka(event)" maxlength="20" required class="form-control" required id="pnip_ed" name="pnip" ></td>
                 </tr>
                 <tr>
-                    <th>Nama</th><td>:</td><td><input type="text" class="form-control" required id="pn_ed" name="pn" ></td>
+                    <th>Nama</th><td>:</td><td><input type="text" onkeypress="return huruf(event)" required class="form-control" required id="pn_ed" name="pn" ></td>
                 </tr>                
                 <tr>
-                    <th>Alamat</th><td>:</td><td><input type="text" class="form-control" required id="pa_ed" name="pa" ></td>
+                    <th>Alamat</th><td>:</td><td><input type="text" required class="form-control" required id="pa_ed" name="pa" ></td>
                 </tr>
                 <tr>
-                    <th>HP</th><td>:</td><td><input type="text" class="form-control" required id="ph_ed" name="ph"></td>
+                    <th>HP</th><td>:</td><td><input type="text" maxlength="15" onkeypress="return hanyaAngka(event)" required class="form-control" required id="ph_ed" name="ph"></td>
                 </tr>
-                <!--<tr>
+                <tr>
                     <th>Level</th><td>:</td><td><input type="checkbox" name="pl" id="ceklvl" value="1">&nbsp;POKJA PKL</td>
-                </tr>-->
+                </tr>
                 </tbody>
           </table> 
-                <!--<div class="row" id="akun" style="display: none">
+               <div class="row" id="akun" style="display: none">
                     <div class="col-md-12">
                     <h5>Akun POKJA PKL</h5>
                     </div>
                     
                     <div class="col-md-12">
-                <label>Username</label><input type="text" class="form-control" name="pu">
+                <label>Username</label><input type="text" class="form-control" name="pu" id="pu_ed">
                         </div>
                      <div class="col-md-12">
                 <label>Password</label><input type="password" class="form-control" name="pp">
                     </div>
-                </div>-->            
+                </div>         
       </div>
       <div class="modal-footer">
         <button type="submit" class="btn btn-success" >Simpan</button>
@@ -154,16 +168,16 @@
           <table class="table table-hover table-striped">
             <tbody>
                 <tr>
-                    <th>NIP</th><td>:</td><td><input type="text" class="form-control" required name="pi" ></td>
+                    <th>NIP</th><td>:</td><td><input type="text" maxlength="20" onkeypress="return hanyaAngka(event)" required class="form-control" required name="pi" ></td>
                 </tr>
                 <tr>
-                    <th>Nama</th><td>:</td><td><input type="text" class="form-control" required name="pn" ></td>
+                    <th>Nama</th><td>:</td><td><input type="text" onkeypress="return huruf(event)" required class="form-control" required name="pn" ></td>
                 </tr>                
                 <tr>
-                    <th>Alamat</th><td>:</td><td><input type="text" class="form-control" required name="pa" ></td>
+                    <th>Alamat</th><td>:</td><td><input type="text" required class="form-control" required name="pa" ></td>
                 </tr>
                 <tr>
-                    <th>HP</th><td>:</td><td><input type="text" class="form-control" required name="ph"></td>
+                    <th>HP</th><td>:</td><td><input type="text" maxlength="15" onkeypress="return hanyaAngka(event)" required class="form-control" required name="ph"></td>
                 </tr>
                 <tr>
                     <th>Level</th><td>:</td><td><input type="checkbox" name="pl" id="ceklvl" value="1">&nbsp;POKJA PKL</td>

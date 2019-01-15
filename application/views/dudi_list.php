@@ -1,11 +1,21 @@
         <div class="content">
             <div class="container-fluid">
+                <?php 
+	if (isset($_SESSION['alert_sales_type'])) { ?>
+    <div class="alert alert-<?php echo $_SESSION['alert_sales_type'];?>">
+                    <span><?php echo $_SESSION['alert_sales_msg'];?></span>
+                </div>
+	<?php }
+	unset($_SESSION['alert_sales_type']);
+	unset($_SESSION['alert_sales_show']);
+	unset($_SESSION['alert_sales_msg']);
+	 ?>
                 <div class="row">                        
                     <div class="col-md-12">
                         <div class="card">
                             <div class="header">
                                 <div class="col-md-6">
-                                <h4 class="title">Daftar DU/DI Periode 2017/2018 </h4>
+                                <h4 class="title">Daftar DU/DI Periode 2018/2019 </h4>
                                 </div><br><br>
                                 <div class="row"></div>
                                 <div class="col-md-4">

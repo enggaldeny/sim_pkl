@@ -50,7 +50,7 @@
                         <p>Home</p>
                     </a>
                 </li>
-                <li class="<?php if ($class=='siswa'){ echo 'active';}else{echo '';};?>">
+                <li class="<?php if ($class=='nilai_sis'){ echo 'active';}else{echo '';};?>">
                     <a href="<?php echo base_url()?>index.php/Nilai">
                         <i class="pe-7s-users"></i>
                         <p>SISWA PKL</p>

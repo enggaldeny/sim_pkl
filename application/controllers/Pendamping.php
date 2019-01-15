@@ -39,16 +39,86 @@ class Pendamping extends CI_Controller{
         $pn=$this->input->post('pn');
         $ph=$this->input->post('ph');
         $pa=$this->input->post('pa');
-
-        $fields=array(
+        $pl=$this->input->post('pl');
+        if(isset($pl)){
+            $pl="1";
+            $pu=$this->input->post('pu');
+            $pp=md5($this->input->post('pp'));
+            
+            if(!empty($pp)){
+                echo $pu;
+            $fields=array(
+            'PGW_NIP'=>$pnip,
+            'PGW_NAMA'=>$pn,
+            'PGW_ALAMAT'=>$pa,
+            'PGW_TELEPON'=>$ph,
+            'PGW_LEVEL'=>$pl,
+            'PGW_USERNAME'=>$pu,
+            'PGW_PASSWORD'=>$pp
+            );
+            $where=array('PGW_ID'=>$pi);
+            $update=$this->M_pkl->updateData('prk_pegawai',$fields,$where);
+                if ($update > 0) {
+                    $_SESSION['alert_sales_type'] = "success";
+                    $_SESSION['alert_sales_show'] = "show";
+                    $_SESSION['alert_sales_msg'] = "Berhasil! Data Guru telah diperbarui.";
+                    redirect(base_url("index.php/Pendamping"));
+                }else{
+                    $_SESSION['alert_sales_type'] = "danger";
+                    $_SESSION['alert_sales_show'] = "show";
+                    $_SESSION['alert_sales_msg'] = "Kesalahan! Data Guru Gagal disimpan.";
+                    redirect(base_url("index.php/Pendamping"));
+                }
+            }else{
+            //$pu=$this->input->post('pu');
+               // echo $pu;
+             $fields=array(
+            'PGW_NIP'=>$pnip,
+            'PGW_NAMA'=>$pn,
+            'PGW_ALAMAT'=>$pa,
+            'PGW_TELEPON'=>$ph,
+            'PGW_LEVEL'=>$pl,
+            'PGW_USERNAME'=>$pu
+            );
+            $where=array('PGW_ID'=>$pi);
+            $update=$this->M_pkl->updateData('prk_pegawai',$fields,$where);
+                if ($update > 0) {
+                    $_SESSION['alert_sales_type'] = "success";
+                    $_SESSION['alert_sales_show'] = "show";
+                    $_SESSION['alert_sales_msg'] = "Berhasil! Data Guru telah diperbarui.";
+                    redirect(base_url("index.php/Pendamping"));
+                }else{
+                    $_SESSION['alert_sales_type'] = "danger";
+                    $_SESSION['alert_sales_show'] = "show";
+                    $_SESSION['alert_sales_msg'] = "Kesalahan! Data Guru Gagal disimpan.";
+                    redirect(base_url("index.php/Pendamping"));
+                }
+            }
+            
+        }else{
+            //echo $pl;
+            $fields=array(
             'PGW_NIP'=>$pnip,
             'PGW_NAMA'=>$pn,
             'PGW_ALAMAT'=>$pa,
             'PGW_TELEPON'=>$ph
             );
-        $where=array('PGW_ID'=>$pi);
-        $this->M_pkl->updateData('prk_pegawai',$fields,$where);
-        redirect('Pendamping');
+            $where=array('PGW_ID'=>$pi);
+        
+            $update=$this->M_pkl->updateData('prk_pegawai',$fields,$where);
+            if ($update > 0) {
+                    $_SESSION['alert_sales_type'] = "success";
+                    $_SESSION['alert_sales_show'] = "show";
+                    $_SESSION['alert_sales_msg'] = "Berhasil! Data Guru telah diperbarui.";
+                    redirect(base_url("index.php/Pendamping"));
+                }else{
+                    $_SESSION['alert_sales_type'] = "danger";
+                    $_SESSION['alert_sales_show'] = "show";
+                    $_SESSION['alert_sales_msg'] = "Kesalahan! Data Guru Gagal disimpan.";
+                    redirect(base_url("index.php/Pendamping"));
+                }
+        }        
+       // redirect('Pendamping');
     }
     
      public function add_pgw(){   
@@ -76,17 +146,44 @@ class Pendamping extends CI_Controller{
             'PGW_PASSWORD'=>$pp,
             'PGW_STATUS'=>1
             );
-        $this->M_pkl->saveData('prk_pegawai',$data);
-        redirect('pendamping');
+        $add=$this->M_pkl->saveData('prk_pegawai',$data);
+         if ($add > 0) {
+                    $_SESSION['alert_sales_type'] = "success";
+                    $_SESSION['alert_sales_show'] = "show";
+                    $_SESSION['alert_sales_msg'] = "Berhasil! Data Guru telah diperbarui.";
+                    redirect(base_url("index.php/Pendamping"));
+                }else{
+                    $_SESSION['alert_sales_type'] = "danger";
+                    $_SESSION['alert_sales_show'] = "show";
+                    $_SESSION['alert_sales_msg'] = "Kesalahan! Data Guru Gagal disimpan.";
+                    redirect(base_url("index.php/Pendamping"));
+                }
     }
      public function del_pgw(){
          $pi=$this->input->post('pi');
-         $fields=array(
-            'PGW_STATUS'=>'0'
-            );
          $where=array('PGW_ID'=>$pi);
-        $this->M_pkl->updateData('prk_pegawai',$fields,$where);
-        redirect('Pendamping');
+          $cek_pgw=$this->M_pkl->getQuery("select PGW_ID from prk_dudi where PGW_ID='$pi'");
+         $cek_lvl = $this->M_pkl->getQuery("select PGW_ID from prk_pegawai where PGW_ID='$pi' and PGW_LEVEL=1"); 
+         if($cek_pgw->num_rows() >0){
+            $_SESSION['alert_sales_type'] = "danger";
+            $_SESSION['alert_sales_show'] = "show";
+            $_SESSION['alert_sales_msg'] = "Data Pendamping masih dipakai, harap ganti terlebih dahulu Pendamping di DUDI Terkait pada menu Plotting.";
+            redirect(base_url("index.php/Pendamping"));
+         }else{
+            if($cek_lvl->num_rows() > 0){
+                $_SESSION['alert_sales_type'] = "danger";
+                $_SESSION['alert_sales_show'] = "show";
+                $_SESSION['alert_sales_msg'] = "Guru ini adalah POKJA PKL, Anda tidak dapat menghapusnya sebelum mengganti Level menjadi Pendamping.";
+                redirect(base_url("index.php/Pendamping"));
+            }else{
+                $del = $this->M_pkl->deleteData('prk_pegawai',$where);
+                $_SESSION['alert_sales_type'] = "success";
+                $_SESSION['alert_sales_show'] = "show";
+                $_SESSION['alert_sales_msg'] = "Berhasil! Data Pendamping telah Dihapus.";
+                redirect(base_url("index.php/Pendamping"));
+            }
+            
+         }
     }
 }
 ?>
